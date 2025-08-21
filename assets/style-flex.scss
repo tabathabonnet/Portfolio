@@ -394,8 +394,10 @@ button.selected {
   width: 100%;  // au lieu de 750px
   max-width: 100%; // pour éviter toute restriction
 }
-.project {
-  width: 750px; // chaque bloc garde sa taille
+
+.image-container-projects {
+    width: 48rem;
+    height: 32rem;
 }
 
 

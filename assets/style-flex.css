@@ -354,8 +354,9 @@ button.selected {
   max-width: 100%;
 }
 
-.project {
-  width: 750px;
+.image-container-projects {
+  width: 48rem;
+  height: 32rem;
 }
 
 /*# sourceMappingURL=style-flex.css.map */
