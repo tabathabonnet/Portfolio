@@ -349,14 +349,24 @@ button.selected {
 
 .container-projects {
   display: flex;
-  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 2rem;
   width: 100%;
   max-width: 100%;
 }
 
+.project {
+  flex: 0 0 calc(50% - 1rem);
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2rem;
+}
+
 .image-container-projects {
-  width: 48rem;
+  width: 100%;
   height: 32rem;
+  overflow: hidden;
+  border-radius: 12px;
 }
 
 /*# sourceMappingURL=style-flex.css.map */
