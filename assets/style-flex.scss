@@ -138,7 +138,7 @@ body {
     font-size: 25px;
     font-weight: 400;
     padding: 4rem;
-    background-color: white;
+    background-color: red;
 }
 
 
@@ -171,7 +171,7 @@ body {
 }
 
 .container-img img {
-    width: calc(33.333% - 10px); // 3 images par ligne
+    width: calc(50% - 10px); // 3 images par ligne
     display: block;
     border-radius: $border-radius;
     height: auto; // garde la hauteur proportionnelle
@@ -199,7 +199,6 @@ body {
     height: 100%;
     width: 100%;
     overflow: hidden;
-
 }
 
 .image-container-home {
@@ -340,6 +339,11 @@ button.selected {
 
 .anim-1 {
     animation: slide-in 1s forwards;
+
+    h1 {
+        margin-bottom: 2rem;
+        width:max-content;
+    }
 }
 
 
@@ -364,6 +368,11 @@ button.selected {
     gap: 20px;
 }
 
+#project-section {
+    display: flex;
+    gap: 20px;
+}
+
 .masonry-col {
     flex: 1;
     display: flex;
@@ -379,13 +388,20 @@ button.selected {
     object-fit: unset; // désactive le recadrage
 }
 
-#illustration-section img {
+
+
+#illustration-section {
+
+    margin-top: 5rem;
+
+    img {
     box-shadow: 0 8px 30px rgba(0, 0, 0, .2);
     width: 100%;
     height: auto; // garde les proportions
     object-fit: contain; // ou "unset" si tu veux totalement désactiver le crop
     border-radius: $border-radius;
     display: block;
+    }
 }
 
 .container-projects {
@@ -408,4 +424,26 @@ button.selected {
     height: 32rem;
     overflow: hidden;
     border-radius: 12px; // utilisez votre variable $border-radius
+}
+
+.description-projet {
+padding-bottom: 5rem;
+max-width: 60rem;
+
+a {
+    font-weight: 400;
+    font-style: italic;
+}
+a::after {
+    content:none;
+
+}
+}
+
+@media (min-width: 700px) {
+    // pour les ordis :-) 
+   body {
+    background-color: white;
+   }
+
 }

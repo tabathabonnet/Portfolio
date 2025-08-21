@@ -1,0 +1,31 @@
+{
+  "profil_picture": {
+    "title": "Profile Picture",
+    "description": "In April 2025, a photo shoot was carried out at <a href='https://qg.center/fr/studio/' target='_blank'>QG Studio</a> to create the new visual identity and profile picture of videographer <a href='https://ericssonblaser.ch/' target='_blank'>Ericsson Blaser</a>. This session was designed to highlight his creative universe and refresh his professional image.",
+    "img_principale": "assets/images/Portrait-Ericsson_Blaser/PP_Eric-1-paysage.jpg",
+    "project_page": "profil_picture.html#profil_picture",
+    "project_name": "Portrait-Ericsson_Blaser",
+    "images": [
+    "PP_Eric-6.jpg",
+    "PP_Eric-3.jpg",
+    "PP_Eric-4.jpg",
+    "PP_Eric-1.jpg",
+    "PP_Eric-5.jpg",
+    "PP_Eric-9.jpg"
+    ]},
+    
+    "Qrew": {
+    "title": "Qrew Shooting",
+    "project_page": "profil_picture.html#Qrew",
+    "project_name": "Qrew-fev_2025",
+    "description": "Qrew project description",
+    "images": [
+    "PP_Eric-6.jpg",
+    "PP_Eric-3.jpg",
+    "PP_Eric-4.jpg",
+    "PP_Eric-1.jpg",
+    "PP_Eric-5.jpg",
+    "PP_Eric-9.jpg"
+    ]}
+}
+

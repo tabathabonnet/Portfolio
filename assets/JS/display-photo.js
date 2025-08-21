@@ -18,6 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
         new_html_section += `<div class="container-img">`;
 
         // Déterminer le nombre de colonnes (ici 3)
+        
         const numCols = 3;
         const cols = Array.from({ length: numCols }, () => []);
 

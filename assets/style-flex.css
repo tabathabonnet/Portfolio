@@ -118,7 +118,7 @@ body {
   font-size: 25px;
   font-weight: 400;
   padding: 4rem;
-  background-color: white;
+  background-color: red;
 }
 
 .container {
@@ -151,7 +151,7 @@ body {
 }
 
 .container-img img {
-  width: calc(33.333% - 10px);
+  width: calc(50% - 10px);
   display: block;
   border-radius: 12px;
   height: auto;
@@ -301,6 +301,10 @@ button.selected {
 .anim-1 {
   animation: slide-in 1s forwards;
 }
+.anim-1 h1 {
+  margin-bottom: 2rem;
+  width: max-content;
+}
 
 .anim-2 {
   opacity: 0;
@@ -323,6 +327,11 @@ button.selected {
   gap: 20px;
 }
 
+#project-section {
+  display: flex;
+  gap: 20px;
+}
+
 .masonry-col {
   flex: 1;
   display: flex;
@@ -338,6 +347,9 @@ button.selected {
   object-fit: unset;
 }
 
+#illustration-section {
+  margin-top: 5rem;
+}
 #illustration-section img {
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
   width: 100%;
@@ -367,6 +379,24 @@ button.selected {
   height: 32rem;
   overflow: hidden;
   border-radius: 12px;
+}
+
+.description-projet {
+  padding-bottom: 5rem;
+  max-width: 60rem;
+}
+.description-projet a {
+  font-weight: 400;
+  font-style: italic;
+}
+.description-projet a::after {
+  content: none;
+}
+
+@media (min-width: 700px) {
+  body {
+    background-color: white;
+  }
 }
 
 /*# sourceMappingURL=style-flex.css.map */
