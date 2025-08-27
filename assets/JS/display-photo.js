@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
         cols.forEach(col => {
           new_html_section += `<div class="masonry-col">`;
           col.forEach(img => {
-            new_html_section += `<img src="assets/images/${project_name}/${img}" alt="${img}" class="hover-target image-container">`;
+            new_html_section += `<img src="assets/images/${project_name}/${img}" alt="${img}" loading="lazy" class="hover-target image-container">`;
           });
           new_html_section += `</div>`;
         });
