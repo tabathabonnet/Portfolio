@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
     colDivs.push(col);
   }
 
-  fetch('assets/JS/folders-profil_picture.json')
+  fetch('assets/JS/folders-project.json')
     .then(res => res.json())
     .then(folders => {
       elements = folders[window.location.hash.substring(1)];
