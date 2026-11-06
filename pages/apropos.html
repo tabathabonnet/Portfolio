@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>À propos — Tabatha</title>
+<meta name="description" content="À propos de Tabatha, interactive media designer — parcours et contact.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+{{header:about}}
+
+<main>
+
+  <section class="about-hero wrap">
+    <div class="grid-12">
+      <h1 class="about-title">Interactive media designer, diplômée. Basée en Suisse.</h1>
+      <div class="about-photo"><img src="_img/_Autre/Photo_Profil-Tabatha.jpg" alt="Portrait de Tabatha" style="width:100%;height:100%;object-fit:cover;"></div>
+      <div class="about-text">
+        <p>Décris ici ton parcours : ta formation en interactive media design, ce qui t'a menée vers l'image (photo, illustration, vidéo, graphisme), et ton expérience chez QoQa — les projets sur lesquels tu as travaillé et ce que cette expérience t'a appris.</p>
+        <p>Ajoute ici ta manière de travailler ou ton point de vue sur le design — ce qui distingue ton regard.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="skills-list wrap">
+    <div class="grid-12">
+      <div class="skills-col">
+        <h3>Disciplines</h3>
+        <ul>
+          <li>Photographie</li>
+          <li>Illustration</li>
+          <li>Vidéo</li>
+          <li>Graphisme</li>
+        </ul>
+      </div>
+      <div class="skills-col">
+        <h3>Logiciels</h3>
+        <ul>
+          <li>Photoshop</li>
+          <li>Illustrator</li>
+          <li>Premiere Pro</li>
+          <li>Figma</li>
+        </ul>
+      </div>
+      <div class="skills-col">
+        <h3>Expérience</h3>
+        <ul>
+          <li>QoQa — Interactive Media Designer</li>
+        </ul>
+      </div>
+      <div class="skills-col">
+        <h3>Formation</h3>
+        <ul>
+          <li>Diplôme Interactive Media Design</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact-block wrap" id="contact">
+    <div class="grid-12">
+      <h2 class="contact-title">Travaillons ensemble.</h2>
+      <span class="eyebrow" style="grid-column:1/13;">Une question, un projet, une collaboration — écris-moi.</span>
+    </div>
+
+    <div class="grid-12" style="margin-top: 32px;">
+      <!--
+        Formulaire prêt pour Netlify Forms (gratuit, sans backend) :
+        - garder name="contact" et l'attribut data-netlify="true"
+        - le champ caché form-name est requis par Netlify
+        - le champ "bot-field" est un piège à spam, à laisser vide
+        Si tu héberges ailleurs, remplace l'attribut action par un
+        service comme Formspree (gratuit jusqu'à 50 envois/mois).
+      -->
+      <form class="contact-form" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+        <input type="hidden" name="form-name" value="contact">
+        <p style="display:none;"><label>Ne pas remplir : <input name="bot-field"></label></p>
+
+        <div class="field">
+          <label for="name">Nom</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+        <div class="field">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div class="field">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="5" required></textarea>
+        </div>
+        <button class="submit-btn" type="submit">Envoyer</button>
+      </form>
+
+      <div class="contact-links">
+        <a href="mailto:{{email}}">{{email}}</a>
+        <a href="{{instagram}}">Instagram</a>
+        <a href="{{linkedin}}">LinkedIn</a>
+        <a href="{{behance}}">Behance</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+{{footer}}

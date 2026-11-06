@@ -1,0 +1,11 @@
+{
+  "name": "portfolio-tabatha",
+  "private": true,
+  "description": "Portfolio de Tabatha — site statique généré à partir de content/",
+  "scripts": {
+    "build": "node build.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

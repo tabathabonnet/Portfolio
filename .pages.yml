@@ -1,0 +1,327 @@
+# ============================================================
+# Pages CMS — configuration de l'interface d'édition
+# Interface : https://app.pagescms.org  (connexion avec GitHub)
+#
+# Ce fichier décrit les formulaires que tu vois dans l'interface.
+# Le site lui-même (build.js) lit les fiches content/projets/*.json
+# et content/site.json que le CMS écrit pour toi.
+# ============================================================
+
+media:
+  - name: images
+    label: Images du site
+    input: _img          # dossier dans le dépôt
+    output: /_img        # chemin enregistré dans les fiches
+    rename: safe         # espaces et accents remplacés automatiquement
+    extensions: [webp, jpg, jpeg, png, svg, gif]
+
+content:
+
+  # ----------------------------------------------------------
+  # PROJETS
+  # ----------------------------------------------------------
+  - name: projets
+    label: Projets
+    type: collection
+    path: content/projets
+    format: json
+    filename: "{primary}.json"
+    view:
+      primary: title
+      fields: [title, discipline, year, order, published]
+    fields:
+
+      - name: title
+        label: Titre du projet
+        type: string
+        required: true
+
+      - name: published
+        label: Publié
+        description: Décoche pour garder le projet en brouillon (il n'apparaît pas sur le site).
+        type: boolean
+        default: true
+
+      - name: layout
+        label: Mise en page
+        type: select
+        required: true
+        default: photo
+        options:
+          values:
+            - value: photo
+              label: Photo — grande couverture + galerie
+            - value: blocks
+              label: Étude de cas — blocs empilés (graphisme, motion, branding…)
+            - value: split
+              label: Étude de cas — colonne fixe à gauche, visuels à droite
+
+      - name: order
+        label: Ordre d'affichage
+        description: 1 = en premier. Sert pour la page Projets, l'accueil et le lien « Projet suivant ».
+        type: number
+
+      - name: featured
+        label: Afficher sur l'accueil
+        type: boolean
+        default: true
+
+      - name: categories
+        label: Catégories (filtres de la page Projets)
+        type: select
+        options:
+          multiple: true
+          values:
+            - value: photo
+              label: Photographie
+            - value: illustration
+              label: Illustration
+            - value: video
+              label: Vidéo
+            - value: graphisme
+              label: Graphisme
+            - value: qoqa
+              label: QoQa
+
+      - name: discipline
+        label: Discipline
+        description: Texte affiché au-dessus du titre et sur l'accueil (ex. Photographie, Direction artistique).
+        type: string
+
+      - name: year
+        label: Année
+        description: Ex. 2025 ou 2025 - 2026.
+        type: string
+
+      - name: role
+        label: Rôle
+        type: string
+
+      - name: client
+        label: Client
+        type: string
+
+      - name: tools
+        label: Outils (facultatif)
+        type: string
+
+      - name: cover
+        label: Image de couverture
+        description: Image principale de la page, et vignette dans la liste des projets.
+        type: image
+        media: images
+        required: true
+
+      - name: cover_vertical
+        label: Couverture verticale (portrait)
+        description: À cocher seulement pour la mise en page Photo si la couverture est en portrait.
+        type: boolean
+        default: false
+
+      - name: home_thumb
+        label: Aperçu au survol sur l'accueil (facultatif)
+        description: Si vide, la couverture est utilisée.
+        type: image
+        media: images
+
+      - name: description
+        label: Description pour Google (facultatif)
+        description: Une phrase. Si vide, elle est générée automatiquement.
+        type: string
+
+      # ---- Mise en page « Photo » ----
+      - name: intro
+        label: Texte de présentation (mise en page Photo)
+        description: Une ligne vide = nouveau paragraphe.
+        type: text
+
+      - name: gallery
+        label: Galerie (mise en page Photo)
+        description: L'ordre ici = l'ordre sur le site. Portrait ou paysage détecté automatiquement.
+        type: image
+        media: images
+        options:
+          multiple: true
+
+      # ---- Mises en page « Étude de cas » ----
+      - name: lead
+        label: Phrase d'accroche (études de cas)
+        description: Une phrase forte qui résume le projet (facultatif).
+        type: text
+
+      - name: blocks
+        label: Blocs de la page (études de cas)
+        description: Ajoute, supprime et réordonne les blocs. La couverture est affichée automatiquement en premier.
+        type: block
+        list: true
+        blockKey: type
+        blocks:
+
+          - name: text
+            label: Texte avec étiquette
+            fields:
+              - name: label
+                label: Étiquette (ex. Contexte, Démarche, Résultat)
+                type: string
+              - name: body
+                label: Texte
+                description: Une ligne vide = nouveau paragraphe.
+                type: text
+
+          - name: image
+            label: Image pleine largeur
+            fields:
+              - name: image
+                label: Image
+                type: image
+                media: images
+              - name: ratio
+                label: Format
+                type: select
+                default: "16-9"
+                options:
+                  values: ["16-9", "3-2", "4-3", "4-5", "3-4", "1-1"]
+              - name: caption
+                label: Légende (facultatif)
+                type: string
+
+          - name: logo
+            label: Logo (pleine largeur)
+            fields:
+              - name: image
+                label: Logo (SVG recommandé)
+                type: image
+                media: images
+              - name: style
+                label: Fond
+                type: select
+                default: none
+                options:
+                  values:
+                    - value: none
+                      label: Sans fond
+                    - value: tinted
+                      label: Gris clair
+                    - value: dark
+                      label: Noir
+                    - value: ruled
+                      label: Filets haut et bas
+
+          - name: duo
+            label: Deux visuels côte à côte
+            fields:
+              - name: image1
+                label: Image de gauche
+                type: image
+                media: images
+              - name: image2
+                label: Image de droite
+                type: image
+                media: images
+              - name: ratio
+                label: Format
+                type: select
+                default: "4-5"
+                options:
+                  values: ["4-5", "3-4", "3-2", "4-3", "1-1"]
+              - name: caption1
+                label: Légende gauche (facultatif)
+                type: string
+              - name: caption2
+                label: Légende droite (facultatif)
+                type: string
+
+          - name: trio
+            label: Trois visuels côte à côte
+            fields:
+              - name: image1
+                label: Image 1
+                type: image
+                media: images
+              - name: image2
+                label: Image 2
+                type: image
+                media: images
+              - name: image3
+                label: Image 3
+                type: image
+                media: images
+              - name: ratio
+                label: Format
+                type: select
+                default: "3-4"
+                options:
+                  values: ["3-4", "4-5", "3-2", "4-3", "1-1"]
+
+          - name: offset
+            label: Image décalée à droite
+            fields:
+              - name: image
+                label: Image
+                type: image
+                media: images
+              - name: ratio
+                label: Format
+                type: select
+                default: "3-2"
+                options:
+                  values: ["3-2", "4-3", "16-9", "4-5", "1-1"]
+              - name: caption
+                label: Légende (facultatif)
+                type: string
+
+          - name: gallery
+            label: Galerie (mélange portrait / paysage)
+            fields:
+              - name: images
+                label: Images
+                description: Portrait ou paysage détecté automatiquement.
+                type: image
+                media: images
+                options:
+                  multiple: true
+
+          - name: video
+            label: Vidéo (Vimeo ou YouTube)
+            fields:
+              - name: url
+                label: Lien de la vidéo
+                description: Colle simplement l'adresse de la vidéo.
+                type: string
+              - name: vertical
+                label: Vidéo verticale (reel, story)
+                type: boolean
+                default: false
+              - name: caption
+                label: Légende (facultatif)
+                type: string
+
+          - name: palette
+            label: Palette de couleurs
+            fields:
+              - name: colors
+                label: Couleurs (codes hexadécimaux, ex. #111111)
+                type: string
+                list: true
+
+  # ----------------------------------------------------------
+  # COORDONNÉES ET RÉSEAUX (pied de page + page À propos)
+  # ----------------------------------------------------------
+  - name: site
+    label: Coordonnées et réseaux
+    type: file
+    path: content/site.json
+    format: json
+    fields:
+      - name: email
+        label: Email
+        type: string
+      - name: instagram
+        label: Lien Instagram
+        type: string
+      - name: linkedin
+        label: Lien LinkedIn
+        type: string
+      - name: behance
+        label: Lien Behance
+        type: string

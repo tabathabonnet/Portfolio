@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nom du projet — Tabatha</title>
+<meta name="description" content="Description courte du projet.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap grid-12">
+    <a class="logo" href="index.html">Tabatha <span>— Portfolio</span></a>
+    <nav class="main-nav" id="main-nav">
+      <a href="index.html">Accueil</a>
+      <a href="projets.html">Projets</a>
+      <a href="apropos.html">À propos</a>
+      <a href="apropos.html#contact">Contact</a>
+    </nav>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="main-nav">Menu</button>
+  </div>
+</header>
+
+<main>
+
+  <!-- ============================================================
+       GABARIT "ÉTUDE DE CAS" — VERSION 2
+       Colonne d'infos fixe à gauche, visuels qui défilent à droite.
+
+       Mode d'emploi :
+       1. Duplique ce fichier (ex: projet-qoqa-campagne.html)
+       2. Rechercher/Remplacer "Nom-du-projet" par le nom du dossier d'images
+          (les images vont dans _img/Nom-du-projet/)
+       3. Colonne de droite : garde, supprime et réordonne les figures.
+          - class="full"  → visuel sur toute la largeur de la colonne
+          - sans classe   → demi-largeur (deux visuels se placent côte à côte)
+       ============================================================ -->
+
+  <section class="split wrap">
+    <div class="grid-12">
+
+      <!-- ===== COLONNE GAUCHE : reste visible pendant le scroll ===== -->
+      <aside class="split-side">
+        <span class="eyebrow">Graphisme — 2025</span>
+        <h1 class="side-title">Nom du projet</h1>
+        <p class="side-lead">Une phrase d'accroche qui résume le projet.</p>
+
+        <dl class="side-meta">
+          <div><dt>Rôle</dt><dd>Direction artistique, motion design</dd></div>
+          <div><dt>Client</dt><dd>QoQa</dd></div>
+          <div><dt>Outils</dt><dd>Illustrator, After Effects</dd></div>
+          <div><dt>Année</dt><dd>2025</dd></div>
+        </dl>
+
+        <div class="side-text">
+          <p>Contexte : décris ici le mandat, la contrainte principale et l'objectif.</p>
+          <p>Démarche : tes choix de direction artistique, de typographie, de couleurs.</p>
+        </div>
+
+        <a class="side-back" href="projets.html">← Retour aux projets</a>
+      </aside>
+
+      <!-- ===== COLONNE DROITE : les visuels défilent ===== -->
+      <div class="split-media">
+
+        <!-- Visuel principal, pleine largeur de colonne -->
+        <figure class="full">
+          <div class="media ratio-16-9">
+            <img src="_img/Nom-du-projet/cover.webp" alt="Visuel principal du projet Nom du projet">
+          </div>
+        </figure>
+
+        <!-- Vidéo Vimeo / YouTube (remplace VIDEO_ID).
+             Pour du vertical, ajoute la classe "vertical" à video-frame. -->
+        <figure class="full">
+          <div class="video-frame">
+            <iframe src="https://player.vimeo.com/video/VIDEO_ID?title=0&byline=0&portrait=0"
+                    title="Vidéo du projet Nom du projet"
+                    loading="lazy"
+                    allow="fullscreen; picture-in-picture"
+                    allowfullscreen></iframe>
+          </div>
+          <figcaption class="caption">Légende de la vidéo (facultatif).</figcaption>
+        </figure>
+
+        <!-- Deux visuels côte à côte (demi-largeur) -->
+        <figure>
+          <div class="media ratio-4-5">
+            <img src="_img/Nom-du-projet/img-1.webp" alt="Nom du projet — visuel 1" loading="lazy">
+          </div>
+          <figcaption class="caption">Légende 1</figcaption>
+        </figure>
+        <figure>
+          <div class="media ratio-4-5">
+            <img src="_img/Nom-du-projet/img-2.webp" alt="Nom du projet — visuel 2" loading="lazy">
+          </div>
+          <figcaption class="caption">Légende 2</figcaption>
+        </figure>
+
+        <!-- Visuel pleine largeur de colonne -->
+        <figure class="full">
+          <div class="media ratio-3-2">
+            <img src="_img/Nom-du-projet/img-3.webp" alt="Nom du projet — visuel 3" loading="lazy">
+          </div>
+        </figure>
+
+        <!-- Palette (optionnel) -->
+        <div class="swatches">
+          <div class="swatch"><div class="chip-color" style="background:#111111;"></div><span>#111111</span></div>
+          <div class="swatch"><div class="chip-color" style="background:#ffffff;"></div><span>#FFFFFF</span></div>
+          <div class="swatch"><div class="chip-color" style="background:#d6d6d0;"></div><span>#D6D6D0</span></div>
+          <div class="swatch"><div class="chip-color" style="background:#6d6d67;"></div><span>#6D6D67</span></div>
+        </div>
+
+        <!-- Deux visuels verticaux -->
+        <figure>
+          <div class="media ratio-3-4">
+            <img src="_img/Nom-du-projet/img-4.webp" alt="Nom du projet — visuel 4" loading="lazy">
+          </div>
+        </figure>
+        <figure>
+          <div class="media ratio-3-4">
+            <img src="_img/Nom-du-projet/img-5.webp" alt="Nom du projet — visuel 5" loading="lazy">
+          </div>
+        </figure>
+
+        <!-- Visuel de clôture -->
+        <figure class="full">
+          <div class="media ratio-16-9">
+            <img src="_img/Nom-du-projet/img-6.webp" alt="Nom du projet — visuel 6" loading="lazy">
+          </div>
+          <figcaption class="caption">Légende</figcaption>
+        </figure>
+
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <nav class="project-nav">
+      <a href="projets.html">← Retour aux projets</a>
+      <a href="projet-design-exemple-2.html">Projet suivant →</a>
+    </nav>
+  </div>
+
+</main>
+
+<footer class="site-footer wrap">
+  <div class="grid-12">
+    <div class="footer-col">
+      <h3>Contact</h3>
+      <a href="mailto:hello@tabatha.ch">hello@tabatha.ch</a>
+      <a href="apropos.html#contact">Formulaire de contact</a>
+    </div>
+    <div class="footer-col">
+      <h3>Réseaux</h3>
+      <a href="#">Instagram</a>
+      <a href="#">LinkedIn</a>
+      <a href="#">Behance</a>
+    </div>
+    <div class="footer-col">
+      <h3>Site</h3>
+      <a href="index.html">Accueil</a>
+      <a href="projets.html">Projets</a>
+      <a href="apropos.html">À propos</a>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,12 @@
+# Site généré (reconstruit automatiquement à chaque mise en ligne)
+dist/
+
+# Fichiers système et verrous Affinity
+.DS_Store
+._*
+*.af~lock~
+Thumbs.db
+
+# Originaux lourds : à garder sur ton ordinateur, pas sur le site
+_img/**/jpg/
+_originaux/

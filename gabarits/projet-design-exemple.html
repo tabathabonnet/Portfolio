@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nom du projet — Tabatha</title>
+<meta name="description" content="Description courte du projet.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap grid-12">
+    <a class="logo" href="index.html">Tabatha <span>— Portfolio</span></a>
+    <nav class="main-nav" id="main-nav">
+      <a href="index.html">Accueil</a>
+      <a href="projets.html">Projets</a>
+      <a href="apropos.html">À propos</a>
+      <a href="apropos.html#contact">Contact</a>
+    </nav>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="main-nav">Menu</button>
+  </div>
+</header>
+
+<main>
+
+  <!-- ============================================================
+       GABARIT "ÉTUDE DE CAS" — graphisme, motion, illustration, QoQa…
+
+       Mode d'emploi :
+       1. Duplique ce fichier (ex: projet-qoqa-campagne.html)
+       2. Rechercher/Remplacer "Nom-du-projet" par le nom du dossier d'images
+          (les images vont dans _img/Nom-du-projet/)
+       3. Garde, supprime et réordonne les blocs "BLOC …" ci-dessous
+          selon ce que ton projet a besoin de montrer.
+       ============================================================ -->
+
+  <!-- ===== EN-TÊTE (même structure que les pages photo) ===== -->
+  <section class="project-head wrap">
+    <div class="grid-12">
+      <span class="eyebrow project-eyebrow">Graphisme — 2025</span>
+      <h1 class="project-title">Nom du projet</h1>
+      <div class="project-meta-row">
+        <div>
+          <span class="eyebrow">Rôle</span><br>
+          Direction artistique, motion design
+        </div>
+        <div>
+          <span class="eyebrow">Client</span><br>
+          QoQa
+        </div>
+        <div>
+          <span class="eyebrow">Outils</span><br>
+          Illustrator, After Effects
+        </div>
+        <div>
+          <span class="eyebrow">Année</span><br>
+          2025
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== BLOC ACCROCHE : une phrase forte qui résume le projet ===== -->
+  <section class="block wrap">
+    <div class="grid-12">
+      <p class="block-lead">Une phrase d'accroche qui résume le projet : le problème posé, l'idée, le résultat.</p>
+    </div>
+  </section>
+
+  <!-- ===== BLOC VISUEL PRINCIPAL : image pleine largeur ===== -->
+  <section class="block wrap">
+    <div class="grid-12">
+      <figure class="media-fig span-12">
+        <div class="media ratio-16-9">
+          <img src="_img/Nom-du-projet/cover.webp" alt="Visuel principal du projet Nom du projet">
+        </div>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ===== BLOC TEXTE avec étiquette (répétable : Contexte, Démarche, Résultat…) ===== -->
+  <section class="block wrap">
+    <div class="grid-12">
+      <span class="eyebrow block-label">Contexte</span>
+      <div class="block-copy">
+        <p>Décris ici le contexte : le mandat, le client, la contrainte principale, l'objectif à atteindre.</p>
+        <p>Une ou deux phrases de plus si nécessaire, pas davantage : les visuels parlent.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== BLOC VIDÉO : Vimeo ou YouTube (idéal pour le motion) =====
+       Vimeo  : remplace VIDEO_ID dans https://player.vimeo.com/video/VIDEO_ID
+       YouTube: remplace par https://www.youtube.com/embed/VIDEO_ID
+       Pour une vidéo verticale, ajoute la classe "vertical" à video-frame. -->
+  <section class="block wrap">
+    <div class="grid-12">
+      <figure class="media-fig span-12">
+        <div class="video-frame">
+          <iframe src="https://player.vimeo.com/video/VIDEO_ID?title=0&byline=0&portrait=0"
+                  title="Vidéo du projet Nom du projet"
+                  loading="lazy"
+                  allow="fullscreen; picture-in-picture"
+                  allowfullscreen></iframe>
+        </div>
+        <figcaption class="caption">Légende de la vidéo (facultatif).</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ===== BLOC DUO : deux visuels côte à côte ===== -->
+  <section class="block wrap">
+    <div class="grid-12">
+      <figure class="media-fig span-6">
+        <div class="media ratio-4-5">
+          <img src="_img/Nom-du-projet/img-1.webp" alt="Nom du projet — visuel 1" loading="lazy">
+        </div>
+        <figcaption class="caption">Légende 1</figcaption>
+      </figure>
+      <figure class="media-fig span-6">
+        <div class="media ratio-4-5">
+          <img src="_img/Nom-du-projet/img-2.webp" alt="Nom du projet — visuel 2" loading="lazy">
+        </div>
+        <figcaption class="caption">Légende 2</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ===== BLOC TEXTE (Démarche) ===== -->
+  <section class="block wrap">
+    <div class="grid-12">
+      <span class="eyebrow block-label">Démarche</span>
+      <div class="block-copy">
+        <p>Explique tes choix : direction artistique, typographie, couleurs, rythme, références.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== BLOC PALETTE (optionnel) : remplace les codes couleur ===== -->
+  <section class="block wrap">
+    <div class="grid-12">
+      <div class="swatches">
+        <div class="swatch"><div class="chip-color" style="background:#111111;"></div><span>#111111</span></div>
+        <div class="swatch"><div class="chip-color" style="background:#ffffff;"></div><span>#FFFFFF</span></div>
+        <div class="swatch"><div class="chip-color" style="background:#d6d6d0;"></div><span>#D6D6D0</span></div>
+        <div class="swatch"><div class="chip-color" style="background:#6d6d67;"></div><span>#6D6D67</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== BLOC TRIO : trois visuels (déclinaisons, supports, formats) ===== -->
+  <section class="block wrap">
+    <div class="grid-12">
+      <figure class="media-fig span-4">
+        <div class="media ratio-3-4">
+          <img src="_img/Nom-du-projet/img-3.webp" alt="Nom du projet — visuel 3" loading="lazy">
+        </div>
+      </figure>
+      <figure class="media-fig span-4">
+        <div class="media ratio-3-4">
+          <img src="_img/Nom-du-projet/img-4.webp" alt="Nom du projet — visuel 4" loading="lazy">
+        </div>
+      </figure>
+      <figure class="media-fig span-4">
+        <div class="media ratio-3-4">
+          <img src="_img/Nom-du-projet/img-5.webp" alt="Nom du projet — visuel 5" loading="lazy">
+        </div>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ===== BLOC IMAGE DÉCALÉE : un visuel sur 8 colonnes, aligné à droite ===== -->
+  <section class="block wrap">
+    <div class="grid-12">
+      <figure class="media-fig span-8 start-5">
+        <div class="media ratio-3-2">
+          <img src="_img/Nom-du-projet/img-6.webp" alt="Nom du projet — visuel 6" loading="lazy">
+        </div>
+        <figcaption class="caption">Légende</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ===== BLOC TEXTE (Résultat) ===== -->
+  <section class="block wrap">
+    <div class="grid-12">
+      <span class="eyebrow block-label">Résultat</span>
+      <div class="block-copy">
+        <p>Le résultat final, l'usage (campagne, publication, diffusion) et ce que tu en retiens.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== NAVIGATION ===== -->
+  <div class="wrap">
+    <nav class="project-nav">
+      <a href="projets.html">← Retour aux projets</a>
+      <a href="projet-design-exemple.html">Projet suivant →</a>
+    </nav>
+  </div>
+
+</main>
+
+<footer class="site-footer wrap">
+  <div class="grid-12">
+    <div class="footer-col">
+      <h3>Contact</h3>
+      <a href="mailto:hello@tabatha.ch">hello@tabatha.ch</a>
+      <a href="apropos.html#contact">Formulaire de contact</a>
+    </div>
+    <div class="footer-col">
+      <h3>Réseaux</h3>
+      <a href="#">Instagram</a>
+      <a href="#">LinkedIn</a>
+      <a href="#">Behance</a>
+    </div>
+    <div class="footer-col">
+      <h3>Site</h3>
+      <a href="index.html">Accueil</a>
+      <a href="projets.html">Projets</a>
+      <a href="apropos.html">À propos</a>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
