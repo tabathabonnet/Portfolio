@@ -637,9 +637,50 @@ function workIndexRows(all) {
     .join('\n');
 }
 
+/* ---------- contenu des pages Accueil et À propos ---------- */
+
+// Fiche facultative : si elle manque, on garde un contenu vide plutôt que de planter.
+function loadPageData(name) {
+  const f = path.join(ROOT, 'content', `${name}.json`);
+  if (!fs.existsSync(f)) { warn(`content/${name}.json introuvable : page construite avec un contenu vide.`); return {}; }
+  return readJSON(f);
+}
+
+const lines = (text) => String(text || '').split('\n').map((l) => l.trim()).filter(Boolean);
+const list = (v) => (Array.isArray(v) ? v : []).map((x) => String(x || '').trim()).filter(Boolean);
+
+function pageTokens() {
+  const home = loadPageData('accueil');
+  const about = loadPageData('apropos');
+  const photo = about.photo || '';
+  checkImage(photo, 'Page À propos (photo)');
+  return {
+    '{{home_title}}': lines(home.title).map(esc).join('<br>'),
+    '{{home_intro}}': esc(home.intro),
+    '{{home_chips}}': list(home.chips).map((c) => `        <span class="chip">${esc(c)}</span>`).join('\n'),
+    '{{about_title}}': lines(about.title).map(esc).join('<br>'),
+    '{{about_photo}}': esc(normPath(photo)),
+    '{{about_text}}': paragraphs(about.text, '        '),
+    '{{about_columns}}': (Array.isArray(about.columns) ? about.columns : [])
+      .filter((c) => c && (c.title || list(c.items).length))
+      .map(
+        (c) => `      <div class="skills-col">
+        <h3>${esc(c.title)}</h3>
+        <ul>
+${list(c.items).map((i) => `          <li>${esc(i)}</li>`).join('\n')}
+        </ul>
+      </div>`
+      )
+      .join('\n'),
+    '{{contact_title}}': esc(about.contact_title),
+    '{{contact_intro}}': esc(about.contact_intro),
+  };
+}
+
 function buildStaticPage(file, all, site) {
   let html = fs.readFileSync(file, 'utf8');
   const tokens = {
+    ...pageTokens(),
     '{{header:home}}': header('home'),
     '{{header:about}}': header('about'),
     '{{footer}}': footer(site),

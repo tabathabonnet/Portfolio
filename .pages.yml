@@ -305,6 +305,70 @@ content:
                 list: true
 
   # ----------------------------------------------------------
+  # PAGE D'ACCUEIL (texte du haut de page)
+  # La liste des travaux sélectionnés vient des projets (« Afficher sur l'accueil »).
+  # ----------------------------------------------------------
+  - name: accueil
+    label: Page d'accueil
+    type: file
+    path: content/accueil.json
+    format: json
+    fields:
+      - name: title
+        label: Grand titre
+        description: Une ligne = un retour à la ligne sur le site.
+        type: text
+      - name: intro
+        label: Phrase de présentation
+        type: text
+      - name: chips
+        label: Pastilles (disciplines)
+        description: Ajoute, supprime et réordonne les pastilles affichées sous la présentation.
+        type: string
+        list: true
+
+  # ----------------------------------------------------------
+  # PAGE À PROPOS
+  # ----------------------------------------------------------
+  - name: apropos
+    label: Page À propos
+    type: file
+    path: content/apropos.json
+    format: json
+    fields:
+      - name: title
+        label: Titre
+        type: text
+      - name: photo
+        label: Photo de profil
+        description: Format portrait (3:4) recommandé, WebP.
+        type: image
+        media: images
+      - name: text
+        label: Texte de présentation
+        description: Une ligne vide = nouveau paragraphe.
+        type: text
+      - name: columns
+        label: Colonnes (Disciplines, Logiciels, Expérience, Formation…)
+        description: Chaque colonne a un titre et une liste de lignes. Tu peux en ajouter, en supprimer et les réordonner.
+        type: object
+        list: true
+        fields:
+          - name: title
+            label: Titre de la colonne
+            type: string
+          - name: items
+            label: Lignes
+            type: string
+            list: true
+      - name: contact_title
+        label: Titre de la zone contact
+        type: string
+      - name: contact_intro
+        label: Phrase sous le titre contact
+        type: string
+
+  # ----------------------------------------------------------
   # COORDONNÉES ET RÉSEAUX (pied de page + page À propos)
   # ----------------------------------------------------------
   - name: site

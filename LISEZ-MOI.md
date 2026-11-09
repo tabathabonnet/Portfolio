@@ -36,7 +36,7 @@ Le fichier `netlify.toml` contient déjà tous les réglages.
 ### 3. Ouvrir l'interface d'édition
 1. Va sur **app.pagescms.org** et connecte-toi avec GitHub.
 2. Autorise l'application sur ton dépôt, puis ouvre-le.
-3. Tu vois deux rubriques : **Projets** et **Coordonnées et réseaux**.
+3. Tu vois quatre rubriques : **Projets**, **Page d'accueil**, **Page À propos** et **Coordonnées et réseaux**.
 
 ---
 
@@ -85,6 +85,8 @@ Garde un dossier par projet (`_img/2026-NomDuProjet/`). Les noms de fichiers n'o
 | Élément | Rôle |
 |---|---|
 | `content/projets/*.json` | Une fiche par projet (écrites par l'interface) |
+| `content/accueil.json` | Titre, phrase et pastilles de l'accueil |
+| `content/apropos.json` | Photo, textes et colonnes de la page À propos |
 | `content/site.json` | Email et liens réseaux (pied de page + À propos) |
 | `pages/` | Accueil et À propos (modèles) |
 | `build.js` | Le générateur (aucune dépendance) |
