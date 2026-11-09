@@ -1,0 +1,16 @@
+{
+  "title": "FRIP O POINT - Photographe événementielle",
+  "published": true,
+  "layout": "photo",
+  "order": 5,
+  "featured": true,
+  "categories": [
+    "photo"
+  ],
+  "discipline": "Photographie",
+  "year": "2025",
+  "role": "Photographe événementielle",
+  "client": "Rondpoint Collectif",
+  "cover": "/_img/_img-Projet/Couv-Photo_QoQa.webp",
+  "cover_vertical": false
+}
