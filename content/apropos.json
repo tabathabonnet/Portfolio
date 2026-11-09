@@ -8,8 +8,9 @@
       "items": [
         "Photographie",
         "Illustration",
-        "Vidéo",
-        "Graphisme"
+        "Graphisme",
+        "Motion Design",
+        "Vidéo"
       ]
     },
     {
@@ -17,8 +18,15 @@
       "items": [
         "Photoshop",
         "Illustrator",
+        "Procreate",
+        "Indesign",
+        "Lightroom",
+        "After Effects",
         "Premiere Pro",
-        "Figma"
+        "Blender",
+        "Figma",
+        "Visual Studio Code",
+        "Claude IA"
       ]
     },
     {
