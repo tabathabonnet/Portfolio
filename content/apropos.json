@@ -1,12 +1,37 @@
 {
   "title": "Interactive media designer, diplômée. Basée en Suisse.",
-  "photo": "_img/_Autre/Photo_Profil-Tabatha.jpg",
-  "text": "Décris ici ton parcours : ta formation en interactive media design, ce qui t'a menée vers l'image (photo, illustration, vidéo, graphisme), et ton expérience chez QoQa — les projets sur lesquels tu as travaillé et ce que cette expérience t'a appris.\n\nAjoute ici ta manière de travailler ou ton point de vue sur le design — ce qui distingue ton regard.",
+  "text": "Interactive Media Designer diplômée dʼun CFC en juin 2026, jʼai effectué une année de stage puis quatre années dʼapprentissage au sein de lʼéquipe créative de QoQa. Cette expérience mʼa permis de contribuer à des projets variés en communication visuelle, création digitale, photographie et contenu multimédia. Polyvalente, curieuse et passionnée par lʼimage sous toutes ses formes, jʼaime concevoir des univers visuels mêlant design graphique, photographie et création numérique.",
   "columns": [
-    { "title": "Disciplines", "items": ["Photographie", "Illustration", "Vidéo", "Graphisme"] },
-    { "title": "Logiciels", "items": ["Photoshop", "Illustrator", "Premiere Pro", "Figma"] },
-    { "title": "Expérience", "items": ["QoQa — Interactive Media Designer"] },
-    { "title": "Formation", "items": ["Diplôme Interactive Media Design"] }
+    {
+      "title": "Disciplines",
+      "items": [
+        "Photographie",
+        "Illustration",
+        "Vidéo",
+        "Graphisme"
+      ]
+    },
+    {
+      "title": "Logiciels",
+      "items": [
+        "Photoshop",
+        "Illustrator",
+        "Premiere Pro",
+        "Figma"
+      ]
+    },
+    {
+      "title": "Expérience",
+      "items": [
+        "QoQa — Interactive Media Designer"
+      ]
+    },
+    {
+      "title": "Formation",
+      "items": [
+        "Diplôme Interactive Media Design"
+      ]
+    }
   ],
   "contact_title": "Travaillons ensemble.",
   "contact_intro": "Une question, un projet, une collaboration — écris-moi."
