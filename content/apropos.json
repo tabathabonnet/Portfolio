@@ -1,17 +1,15 @@
 {
   "title": "Interactive media designer, diplômée. Basée en Suisse.",
-  "photo": "/_img/photoprofil-tabatha.jpg",
-  "text": "Interactive Media Designer diplômée dʼun CFC en juin 2026, jʼai effectué une année de stage puis quatre années dʼapprentissage au sein de lʼéquipe créative de QoQa. Cette expérience mʼa permis de contribuer à des projets variés en communication visuelle, création digitale, photographie et contenu multimédia. Polyvalente, curieuse et passionnée par lʼimage sous toutes ses formes, jʼaime concevoir des univers visuels mêlant design graphique, photographie et création numérique.",
+  "photo": "_img/_Autre/Photo_Profil-Tabatha.jpg",
+  "text": "Décris ici ton parcours : ta formation en interactive media design, ce qui t'a menée vers l'image (photo, illustration, vidéo, graphisme), et ton expérience chez QoQa — les projets sur lesquels tu as travaillé et ce que cette expérience t'a appris.\n\nAjoute ici ta manière de travailler ou ton point de vue sur le design — ce qui distingue ton regard.",
   "columns": [
     {
       "title": "Disciplines",
       "items": [
         "Photographie",
         "Illustration",
-        "Graphisme",
-        "Motion Design",
-        "Web design",
-        "Vidéo"
+        "Vidéo",
+        "Graphisme"
       ]
     },
     {
@@ -19,36 +17,24 @@
       "items": [
         "Photoshop",
         "Illustrator",
-        "Procreate",
-        "Indesign",
-        "Lightroom",
-        "After Effects",
         "Premiere Pro",
-        "Blender",
-        "Figma",
-        "Visual Studio Code",
-        "Claude IA"
+        "Figma"
       ]
     },
     {
       "title": "Expérience",
       "items": [
-        "2022 / 2026 - Interactive Media Designer CFC - QoQa",
-        "2021 / 2022 - Stagiaire Interactive Media Designer - QoQa",
-        "2021 - Stage en illustration & communication - MonLausanne",
-        "2021 - Stage Interactive Media Designer - 23bis",
-        "2021 - Stage Interactive Media Designer - Wgr Sa",
-        "2021 - Stage en design graphique et production visuelle - The Swiss Peak Sàrl",
-        "2020 / 2021 - Préapprentissage - Eracom"
+        "QoQa — Interactive Media Designer"
       ]
     },
     {
       "title": "Formation",
       "items": [
-        "CFC Interactive Media Design"
+        "Diplôme Interactive Media Design"
       ]
     }
   ],
   "contact_title": "Travaillons ensemble.",
-  "contact_intro": "Une question, un projet, une collaboration — écris-moi."
+  "contact_intro": "Une question, un projet, une collaboration — écris-moi.",
+  "contact_form": ""
 }

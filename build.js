@@ -649,11 +649,21 @@ function loadPageData(name) {
 const lines = (text) => String(text || '').split('\n').map((l) => l.trim()).filter(Boolean);
 const list = (v) => (Array.isArray(v) ? v : []).map((x) => String(x || '').trim()).filter(Boolean);
 
+// Adresse d'envoi du formulaire de contact (Formspree). Sans adresse valide : repli sur le courriel.
+function formAction(about) {
+  const url = String((about && about.contact_form) || '').trim();
+  if (/^https:\/\/formspree\.io\/f\/[A-Za-z0-9]+$/.test(url)) return { action: url, enctype: '' };
+  warn('Adresse Formspree absente ou invalide (content/apropos.json → contact_form) : le formulaire ouvrira le courriel de la visiteuse.');
+  const mail = String(loadSite().email || '').trim();
+  return { action: 'mailto:' + mail.replace(/[^A-Za-z0-9@._+-]/g, ''), enctype: ' enctype="text/plain"' };
+}
+
 function pageTokens() {
   const home = loadPageData('accueil');
   const about = loadPageData('apropos');
   const photo = about.photo || '';
   checkImage(photo, 'Page À propos (photo)');
+  const form = formAction(about);
   return {
     '{{home_title}}': lines(home.title).map(esc).join('<br>'),
     '{{home_intro}}': esc(home.intro),
@@ -674,6 +684,8 @@ ${list(c.items).map((i) => `          <li>${esc(i)}</li>`).join('\n')}
       .join('\n'),
     '{{contact_title}}': esc(about.contact_title),
     '{{contact_intro}}': esc(about.contact_intro),
+    '{{contact_form_action}}': form.action,
+    '{{contact_form_enctype}}': form.enctype,
   };
 }
 
