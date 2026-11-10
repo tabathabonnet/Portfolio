@@ -321,11 +321,6 @@ content:
       - name: intro
         label: Phrase de présentation
         type: text
-      - name: chips
-        label: Pastilles (disciplines)
-        description: Ajoute, supprime et réordonne les pastilles affichées sous la présentation.
-        type: string
-        list: true
 
   # ----------------------------------------------------------
   # PAGE À PROPOS
@@ -386,6 +381,6 @@ content:
       - name: linkedin
         label: Lien LinkedIn
         type: string
-      - name: behance
-        label: Lien Behance
+      - name: tiktok
+        label: Lien TikTok
         type: string
