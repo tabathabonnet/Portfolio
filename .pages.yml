@@ -76,12 +76,10 @@ content:
               label: Photographie
             - value: illustration
               label: Illustration
-            - value: video
-              label: Vidéo
             - value: graphisme
               label: Graphisme
-            - value: qoqa
-              label: QoQa
+            - value: video
+              label: Vidéo
 
       - name: discipline
         label: Discipline

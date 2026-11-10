@@ -585,7 +585,7 @@ function buildProjectsIndex(all, site) {
     )
     .join('\n\n');
   return (
-    head('Projets — Tabatha', 'Index des projets de Tabatha — photo, illustration, vidéo, graphisme et QoQa.') +
+    head('Projets — Tabatha', 'Index des projets de Tabatha — photo, illustration, graphisme et vidéo.') +
     '\n' +
     header('projects') +
     `
@@ -598,9 +598,8 @@ function buildProjectsIndex(all, site) {
         <button class="filter-btn active" data-filter="all">Tout</button>
         <button class="filter-btn" data-filter="photo">Photographie</button>
         <button class="filter-btn" data-filter="illustration">Illustration</button>
-        <button class="filter-btn" data-filter="video">Vidéo</button>
         <button class="filter-btn" data-filter="graphisme">Graphisme</button>
-        <button class="filter-btn" data-filter="qoqa">QoQa</button>
+        <button class="filter-btn" data-filter="video">Vidéo</button>
       </div>
     </div>
   </section>
