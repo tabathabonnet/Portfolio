@@ -145,13 +145,12 @@ const footer = (site) => `<footer class="site-footer wrap">
     <div class="footer-col">
       <h3>Contact</h3>
       <a href="mailto:${esc(site.email)}">${esc(site.email)}</a>
-      <a href="apropos.html#contact">Formulaire de contact</a>
     </div>
     <div class="footer-col">
       <h3>Réseaux</h3>
       <a href="${esc(site.instagram)}">Instagram</a>
       <a href="${esc(site.linkedin)}">LinkedIn</a>
-      <a href="${esc(site.behance)}">Behance</a>
+${site.tiktok ? `\n      <a href="${esc(site.tiktok)}">TikTok</a>` : ''}
     </div>
     <div class="footer-col">
       <h3>Site</h3>
@@ -176,7 +175,7 @@ function loadSite() {
     email: (s.email || 'hello@tabatha.ch').trim(),
     instagram: link(s.instagram),
     linkedin: link(s.linkedin),
-    behance: link(s.behance),
+    tiktok: (s.tiktok && String(s.tiktok).trim()) || '',
   };
 }
 
@@ -649,13 +648,18 @@ function loadPageData(name) {
 const lines = (text) => String(text || '').split('\n').map((l) => l.trim()).filter(Boolean);
 const list = (v) => (Array.isArray(v) ? v : []).map((x) => String(x || '').trim()).filter(Boolean);
 
-// Adresse d'envoi du formulaire de contact (Formspree). Sans adresse valide : repli sur le courriel.
-function formAction(about) {
-  const url = String((about && about.contact_form) || '').trim();
-  if (/^https:\/\/formspree\.io\/f\/[A-Za-z0-9]+$/.test(url)) return { action: url, enctype: '' };
-  warn('Adresse Formspree absente ou invalide (content/apropos.json → contact_form) : le formulaire ouvrira le courriel de la visiteuse.');
-  const mail = String(loadSite().email || '').trim();
-  return { action: 'mailto:' + mail.replace(/[^A-Za-z0-9@._+-]/g, ''), enctype: ' enctype="text/plain"' };
+// Lignes de la zone contact (page À propos) : une ligne par coordonnée renseignée.
+function contactLinks(site) {
+  const rows = [
+    ['Email', site.email, 'mailto:' + site.email],
+    ['Instagram', site.instagram, site.instagram],
+    ['LinkedIn', site.linkedin, site.linkedin],
+    ['TikTok', site.tiktok, site.tiktok],
+  ].filter(([, , href]) => href && href !== '#' && href !== 'mailto:');
+  const shown = (label, v) => (label === 'Email' ? v : String(v).replace(/^https?:\/\/(www\.)?/, '').replace(/[?#].*$/, '').replace(/\/$/, ''));
+  return rows
+    .map(([label, v, href]) => `        <a href="${esc(href)}"${href.startsWith('mailto:') ? '' : ' target="_blank" rel="noopener"'}><span class="contact-label">${label}</span><span class="contact-value">${esc(shown(label, v))}</span></a>`)
+    .join('\n');
 }
 
 function pageTokens() {
@@ -663,11 +667,9 @@ function pageTokens() {
   const about = loadPageData('apropos');
   const photo = about.photo || '';
   checkImage(photo, 'Page À propos (photo)');
-  const form = formAction(about);
   return {
     '{{home_title}}': lines(home.title).map(esc).join('<br>'),
     '{{home_intro}}': esc(home.intro),
-    '{{home_chips}}': list(home.chips).map((c) => `        <span class="chip">${esc(c)}</span>`).join('\n'),
     '{{about_title}}': lines(about.title).map(esc).join('<br>'),
     '{{about_photo}}': esc(normPath(photo)),
     '{{about_text}}': paragraphs(about.text, '        '),
@@ -684,8 +686,6 @@ ${list(c.items).map((i) => `          <li>${esc(i)}</li>`).join('\n')}
       .join('\n'),
     '{{contact_title}}': esc(about.contact_title),
     '{{contact_intro}}': esc(about.contact_intro),
-    '{{contact_form_action}}': form.action,
-    '{{contact_form_enctype}}': form.enctype,
   };
 }
 
@@ -696,10 +696,7 @@ function buildStaticPage(file, all, site) {
     '{{header:home}}': header('home'),
     '{{header:about}}': header('about'),
     '{{footer}}': footer(site),
-    '{{email}}': esc(site.email),
-    '{{instagram}}': esc(site.instagram),
-    '{{linkedin}}': esc(site.linkedin),
-    '{{behance}}': esc(site.behance),
+    '{{contact_links}}': contactLinks(site),
     '{{work_index}}': workIndexRows(all),
   };
   for (const [k, v] of Object.entries(tokens)) html = html.split(k).join(v);

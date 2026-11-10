@@ -30,13 +30,12 @@ Chaque projet = une petite fiche dans `content/projets/`. Les pages `projet-….
 Le fichier `netlify.toml` contient déjà tous les réglages.
 - **Netlify** : *Add new site → Import an existing project → GitHub* → choisis le dépôt → *Deploy*.
 - Ton nom de domaine : *Site configuration → Domain management → Add a domain*, puis suis les instructions DNS chez ton registrar.
-- Le formulaire de contact de la page À propos fonctionne tel quel sur Netlify.
 - Sur Cloudflare Pages ou autre, les réglages sont : commande de build `node build.js`, dossier de sortie `dist`. Le formulaire de contact devra alors passer par un autre service (Formspree par exemple).
 
 ### 3. Ouvrir l'interface d'édition
 1. Va sur **app.pagescms.org** et connecte-toi avec GitHub.
 2. Autorise l'application sur ton dépôt, puis ouvre-le.
-3. Tu vois quatre rubriques : **Projets**, **Page d'accueil**, **Page À propos** et **Coordonnées et réseaux**.
+3. Tu vois quatre rubriques : **Projets**, **Page d'accueil**, **Page À propos** et **Coordonnées et réseaux** (email, Instagram, LinkedIn, TikTok).
 
 ---
 
