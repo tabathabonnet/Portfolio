@@ -1,5 +1,5 @@
 {
-  "title": "FRIP O POINT - Photographe événementielle",
+  "title": "Frip O Point - Photographe événementielle",
   "published": true,
   "layout": "photo",
   "order": 5,
@@ -14,6 +14,7 @@
   "cover": "/_img/_img-Projet/couv-fripopoint.webp",
   "cover_vertical": false,
   "home_thumb": "/_img/2025-FripOPoint/2025-RondPoint-FRIP-36.webp",
+  "intro": "En août 2025, le collectif Rondpoint a organisé un événement de deux jours au bord du lac Léman, à Lausanne, réunissant différents créateurs et vendeurs venus présenter et vendre leurs créations et produits. À cette occasion, ils ont fait appel à mes services pour photographier et immortaliser les moments forts de l’événement.",
   "gallery": [
     "/_img/2025-FripOPoint/2025-rondpoint-frip-6.webp",
     "/_img/2025-FripOPoint/2025-rondpoint-frip-61.webp",
@@ -35,9 +36,9 @@
     "/_img/2025-FripOPoint/2025-rondpoint-frip-36.webp",
     "/_img/2025-FripOPoint/2025-rondpoint-frip-32.webp",
     "/_img/2025-FripOPoint/2025-rondpoint-frip-51.webp",
-    "/_img/2025-FripOPoint/2025-rondpoint-frip-70.webp",
     "/_img/2025-FripOPoint/2025-rondpoint-frip-71.webp",
     "/_img/2025-FripOPoint/2025-rondpoint-frip-92.webp",
+    "/_img/2025-FripOPoint/2025-rondpoint-frip-70.webp",
     "/_img/2025-FripOPoint/2025-rondpoint-frip-84.webp",
     "/_img/2025-FripOPoint/2025-rondpoint-frip-96.webp"
   ]
