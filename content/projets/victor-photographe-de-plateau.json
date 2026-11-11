@@ -1,0 +1,15 @@
+{
+  "title": "\"Victor\" - Photographe de plateau",
+  "published": true,
+  "layout": "photo",
+  "featured": true,
+  "categories": [
+    "photo"
+  ],
+  "discipline": "Photographie",
+  "year": "2025",
+  "role": "Photographe de plateau",
+  "client": "Ericsson Blaser",
+  "cover": "/_img/_img-Projet/couv-victortournage.webp",
+  "cover_vertical": false
+}
