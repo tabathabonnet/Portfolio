@@ -11,5 +11,15 @@
   "role": "Photographe événementielle",
   "client": "Wgr Sa",
   "cover": "/_img/couv-30answgr.webp",
-  "cover_vertical": false
+  "cover_vertical": false,
+  "home_thumb": "/_img/30answgr-4.webp",
+  "gallery": [
+    "/_img/30answgr-16.webp",
+    "/_img/2024-30ans_WGR/30answgr-4.webp",
+    "/_img/2024-30ans_WGR/30answgr-5.webp",
+    "/_img/2024-30ans_WGR/30answgr-6.webp",
+    "/_img/2024-30ans_WGR/30answgr-12.webp",
+    "/_img/2024-30ans_WGR/30answgr-13.webp",
+    "/_img/2024-30ans_WGR/30answgr-15.webp"
+  ]
 }
