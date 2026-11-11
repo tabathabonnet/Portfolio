@@ -2,7 +2,7 @@
   "title": "Victor - Photographe de plateau",
   "published": true,
   "layout": "photo",
-  "featured": true,
+  "featured": false,
   "categories": [
     "photo"
   ],
@@ -13,6 +13,7 @@
   "cover": "/_img/_img-Projet/couv-victortournage.webp",
   "cover_vertical": false,
   "home_thumb": "/_img/2025-Victor_Tournage/2025-victortournage-15.webp",
+  "intro": "En janvier 2025, le vidéaste Ericsson Blaser a fait appel à mes services pour photographier les coulisses de son court métrage « Victor ». Ce dernier a remporté le prix du meilleur film dans la catégorie 20–26 ans du concours Reflex, organisé dans le cadre de Visions du Réel 2025.",
   "gallery": [
     "/_img/2025-Victor_Tournage/2025-victortournage-4.webp",
     "/_img/2025-Victor_Tournage/2025-victortournage-12.webp",
