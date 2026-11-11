@@ -56,10 +56,14 @@
       ]
     },
     {
+      "type": "text",
+      "label": "La vidéo promotionnel",
+      "body": "L’objectif était de concevoir une vidéo promotionnelle destinée aux réseaux sociaux, afin d’annoncer le lancement de cette nouvelle marque auprès de la communauté QoQa"
+    },
+    {
       "type": "video",
       "url": "https://youtube.com/shorts/_7dNUiRM_eQ?feature=share",
-      "vertical": true,
-      "caption": "L’objectif était de concevoir une vidéo promotionnelle destinée aux réseaux sociaux, afin d’annoncer le lancement de cette nouvelle marque auprès de la communauté QoQa"
+      "vertical": false
     }
   ]
 }
