@@ -63,7 +63,7 @@
     {
       "type": "video",
       "url": "https://youtube.com/shorts/_7dNUiRM_eQ?feature=share",
-      "vertical": false
+      "vertical": true
     }
   ]
 }
