@@ -1,5 +1,5 @@
 {
-  "title": "\"Victor\" - Photographe de plateau",
+  "title": "Victor - Photographe de plateau",
   "published": true,
   "layout": "photo",
   "featured": true,
@@ -11,5 +11,27 @@
   "role": "Photographe de plateau",
   "client": "Ericsson Blaser",
   "cover": "/_img/_img-Projet/couv-victortournage.webp",
-  "cover_vertical": false
+  "cover_vertical": false,
+  "home_thumb": "/_img/2025-Victor_Tournage/2025-victortournage-15.webp",
+  "gallery": [
+    "/_img/2025-Victor_Tournage/2025-victortournage-1.webp",
+    "/_img/2025-Victor_Tournage/2025-victortournage-10.webp",
+    "/_img/2025-Victor_Tournage/2025-victortournage-12.webp",
+    "/_img/2025-Victor_Tournage/2025-victortournage-13.webp",
+    "/_img/2025-Victor_Tournage/2025-victortournage-14.webp",
+    "/_img/2025-Victor_Tournage/2025-victortournage-19.webp",
+    "/_img/2025-Victor_Tournage/2025-victortournage-17.webp",
+    "/_img/2025-Victor_Tournage/2025-victortournage-16.webp",
+    "/_img/2025-Victor_Tournage/2025-victortournage-15.webp",
+    "/_img/2025-Victor_Tournage/2025-victortournage-18.webp",
+    "/_img/2025-Victor_Tournage/2025-victortournage-4.webp",
+    "/_img/2025-Victor_Tournage/2025-victortournage-3.webp",
+    "/_img/2025-Victor_Tournage/2025-victortournage-20.webp",
+    "/_img/2025-Victor_Tournage/2025-victortournage-2.webp",
+    "/_img/2025-Victor_Tournage/2025-victortournage-5.webp",
+    "/_img/2025-Victor_Tournage/2025-victortournage-9.webp",
+    "/_img/2025-Victor_Tournage/2025-victortournage-8.webp",
+    "/_img/2025-Victor_Tournage/2025-victortournage-7.webp",
+    "/_img/2025-Victor_Tournage/2025-victortournage-6.webp"
+  ]
 }
