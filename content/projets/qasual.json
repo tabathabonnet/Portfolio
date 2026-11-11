@@ -1,19 +1,19 @@
 {
   "title": "Qasual - Travail de diplôme",
-  "layout": "blocks",
   "published": true,
+  "layout": "blocks",
+  "order": 4,
+  "featured": true,
+  "categories": [
+    "graphisme"
+  ],
   "discipline": "Direction artistique",
   "year": "2026",
   "role": "Direction artistique et production",
   "client": "QoQa",
-  "categories": [
-    "graphisme",
-    "qoqa"
-  ],
-  "cover": "_img/_img-Projet/Couv-Qasual.webp",
-  "home_thumb": "_img/2026-Qasual/img-3.webp",
-  "featured": true,
-  "order": 4,
+  "cover": "/_img/_img-Projet/Couv-Qasual.webp",
+  "cover_vertical": false,
+  "home_thumb": "/_img/2026-Qasual/img-3.webp",
   "blocks": [
     {
       "type": "text",
@@ -22,14 +22,13 @@
     },
     {
       "type": "logo",
-      "image": "_img/2026-Qasual/Qasual-Logo.svg",
-      "alt": "Logo Qasual",
+      "image": "/_img/2026-Qasual/Qasual-Logo.svg",
       "style": "none"
     },
     {
       "type": "duo",
-      "image1": "_img/2026-Qasual/img-3.webp",
-      "image2": "_img/2026-Qasual/img-14.webp",
+      "image1": "/_img/2026-Qasual/img-3.webp",
+      "image2": "/_img/2026-Qasual/img-14.webp",
       "ratio": "4-5"
     },
     {
@@ -49,12 +48,18 @@
     {
       "type": "gallery",
       "images": [
-        "_img/2026-Qasual/img-6.webp",
-        "_img/2026-Qasual/img-5.webp",
-        "_img/2026-Qasual/img-12.webp",
-        "_img/2026-Qasual/img-7.webp",
-        "_img/2026-Qasual/img-1.webp"
+        "/_img/2026-Qasual/img-6.webp",
+        "/_img/2026-Qasual/img-5.webp",
+        "/_img/2026-Qasual/img-12.webp",
+        "/_img/2026-Qasual/img-7.webp",
+        "/_img/2026-Qasual/img-1.webp"
       ]
+    },
+    {
+      "type": "video",
+      "url": "https://youtube.com/shorts/_7dNUiRM_eQ?feature=share",
+      "vertical": true,
+      "caption": "L’objectif était de concevoir une vidéo promotionnelle destinée aux réseaux sociaux, afin d’annoncer le lancement de cette nouvelle marque auprès de la communauté QoQa"
     }
   ]
 }
