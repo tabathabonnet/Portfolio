@@ -1,32 +1,32 @@
 {
-  "layout": "photo",
-  "published": true,
   "title": "Photographie Branding - QoQa",
+  "published": true,
+  "layout": "photo",
+  "order": 3,
+  "featured": true,
+  "categories": [
+    "photo"
+  ],
   "discipline": "Photographie",
   "year": "2025 - 2026",
   "role": "Photographe, direction artistique",
   "client": "QoQa Services SA",
-  "categories": [
-    "photo",
-    "qoqa"
-  ],
-  "cover": "_img/_img-Projet/Couv-Photo_QoQa.webp",
-  "home_thumb": "_img/2025_2026-Photos_QoQa/img-3.webp",
-  "featured": true,
-  "order": 3,
-  "intro": "Décris ici le contexte du projet : le mandat ou l'intention de départ, la contrainte principale, et ce que tu cherchais à raconter visuellement.\n\nExplique ensuite ta démarche : les choix de composition, de lumière, de direction artistique — ce qui rend cette pièce spécifique à ton regard.\n\nTermine par le résultat ou l'usage final du projet (publication, campagne, exposition, exercice d'école, etc.).",
+  "cover": "/_img/_img-Projet/Couv-Photo_QoQa.webp",
+  "cover_vertical": false,
+  "home_thumb": "/_img/2025_2026-Photos_QoQa/img-3.webp",
+  "intro": "Durant mes cinq années chez QoQa, j’ai eu l’occasion de participer à plusieurs shootings éditoriaux axés sur l’image de marque et la communication visuelle de la plateforme. À travers ces projets, j’ai contribué à créer des univers photographiques et des visuels éditoriaux destinés à renforcer l’identité de QoQa, tout en respectant son branding et son univers graphique.",
   "gallery": [
-    "_img/2025_2026-Photos_QoQa/img-9.webp",
-    "_img/2025_2026-Photos_QoQa/img-7.webp",
-    "_img/2025_2026-Photos_QoQa/img-2.webp",
-    "_img/2025_2026-Photos_QoQa/img-3.webp",
-    "_img/2025_2026-Photos_QoQa/img-6.webp",
-    "_img/2025_2026-Photos_QoQa/img-4.webp",
-    "_img/2025_2026-Photos_QoQa/img-5.webp",
-    "_img/2025_2026-Photos_QoQa/img-12.webp",
-    "_img/2025_2026-Photos_QoQa/img-8.webp",
-    "_img/2025_2026-Photos_QoQa/img-10.webp",
-    "_img/2025_2026-Photos_QoQa/img-1.webp",
-    "_img/2025_2026-Photos_QoQa/img-11.webp"
+    "/_img/2025_2026-Photos_QoQa/img-9.webp",
+    "/_img/2025_2026-Photos_QoQa/img-7.webp",
+    "/_img/2025_2026-Photos_QoQa/img-2.webp",
+    "/_img/2025_2026-Photos_QoQa/img-3.webp",
+    "/_img/2025_2026-Photos_QoQa/img-6.webp",
+    "/_img/2025_2026-Photos_QoQa/img-4.webp",
+    "/_img/2025_2026-Photos_QoQa/img-5.webp",
+    "/_img/2025_2026-Photos_QoQa/img-12.webp",
+    "/_img/2025_2026-Photos_QoQa/img-8.webp",
+    "/_img/2025_2026-Photos_QoQa/img-10.webp",
+    "/_img/2025_2026-Photos_QoQa/img-1.webp",
+    "/_img/2025_2026-Photos_QoQa/img-11.webp"
   ]
 }
