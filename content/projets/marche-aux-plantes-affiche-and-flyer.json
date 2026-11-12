@@ -1,8 +1,8 @@
 {
   "title": "Marché aux Plantes - Affiche & Flyer",
   "published": true,
-  "layout": "photo",
-  "featured": true,
+  "layout": "split",
+  "featured": false,
   "categories": [
     "graphisme"
   ],
@@ -10,6 +10,8 @@
   "year": "2026",
   "role": "Graphiste",
   "client": "QG center",
-  "cover": "/_img/2025-Qrew/img-15.webp",
-  "cover_vertical": false
+  "cover": "/_img/_img-Projet/couv-marcheauxplantes.webp",
+  "cover_vertical": false,
+  "home_thumb": "/_img/2026-Marche_aux_Plante/map-impressionaffiche.webp",
+  "intro": "En mars 2026, le QG Center de Bussigny a organisé son tout premier marché aux plantes. Dans le cadre de mon apprentissage, j’ai eu l’occasion de concevoir l’ensemble de l’identité visuelle de cet événement, de la création du concept graphique à la réalisation des supports de communication, notamment une affiche et des flyers promotionnels."
 }
