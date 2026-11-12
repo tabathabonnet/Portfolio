@@ -22,7 +22,7 @@
     },
     {
       "type": "duo",
-      "image1": "/_img/2026-Marche_aux_Plante/map-affiche.webp",
+      "image1": "/_img/2026-Marche_aux_Plante/map-affiche-1.webp",
       "image2": "/_img/2026-Marche_aux_Plante/map-impressionaffiche.webp",
       "ratio": "4-5"
     },
@@ -37,7 +37,7 @@
     {
       "type": "image",
       "image": "/_img/2026-Marche_aux_Plante/map-affiche-mockup.webp",
-      "ratio": "4-3"
+      "ratio": "4-5"
     }
   ]
 }
