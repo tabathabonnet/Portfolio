@@ -5,7 +5,9 @@
   "order": 4,
   "featured": true,
   "categories": [
-    "graphisme"
+    "graphisme",
+    "photo",
+    "video"
   ],
   "discipline": "Direction artistique",
   "year": "2026",
