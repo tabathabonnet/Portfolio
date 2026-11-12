@@ -25,6 +25,19 @@
       "image1": "/_img/2026-Marche_aux_Plante/map-affiche.webp",
       "image2": "/_img/2026-Marche_aux_Plante/map-impressionaffiche.webp",
       "ratio": "4-5"
+    },
+    {
+      "type": "palette",
+      "colors": [
+        "a9d598",
+        "4d9529",
+        "000000"
+      ]
+    },
+    {
+      "type": "image",
+      "image": "/_img/2026-Marche_aux_Plante/map-affiche-mockup.webp",
+      "ratio": "4-3"
     }
   ]
 }
