@@ -65,12 +65,12 @@
     {
       "type": "video",
       "url": "https://youtube.com/shorts/_7dNUiRM_eQ?feature=share",
-      "vertical": true
+      "vertical": false
     },
     {
       "type": "image",
-      "image": "/_img/2026-Qasual/qasual-maquette.png",
-      "ratio": "1-1"
+      "image": "/_img/2026-Qasual/qasual-maquette.jpg",
+      "ratio": "16-9"
     }
   ]
 }
