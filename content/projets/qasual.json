@@ -34,11 +34,6 @@
       "ratio": "4-5"
     },
     {
-      "type": "text",
-      "label": "Démarche",
-      "body": "La direction artistique de Qasual mêle esthétique streetwear, minimalisme et spontanéité. Le logo manuscrit et les illustrations au trait apportent une touche organique, tandis que la palette beige, turquoise et rose clair, emprunté à QoQa, crée un univers estival et reconnaissable. La typographie Ottertype, également utilisée par QoQa, fait subtilement le lien avec la marque mère, tandis que l’Inter Tight apporte sobriété et lisibilité. Côté photographie, le flash direct, le béton et les fonds épurés renforcent l’esthétique brute et contemporaine du projet."
-    },
-    {
       "type": "palette",
       "colors": [
         "#111111",
@@ -60,11 +55,6 @@
         "/_img/2026-Qasual/img-9.webp",
         "/_img/2026-Qasual/img-11.webp"
       ]
-    },
-    {
-      "type": "text",
-      "label": "Video & Maquette",
-      "body": "L’objectif était de concevoir une vidéo promotionnelle destinée aux réseaux sociaux, afin d’annoncer le lancement de cette nouvelle marque auprès de la communauté QoQa.\n\nEn parallèle, la maquette avait pour objectif de présenter la marque à travers une interface de boutique en ligne, mettant en avant son univers et sa collection. Le design reprenait les différents éléments graphiques de la marque afin d’assurer une cohérence visuelle avec son identité."
     },
     {
       "type": "video",
