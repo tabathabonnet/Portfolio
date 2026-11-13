@@ -17,15 +17,15 @@
   "lead": "En mars 2026, le QG Center de Bussigny a organisé son tout premier marché aux plantes. Dans le cadre de mon apprentissage, j’ai eu l’occasion de concevoir l’ensemble de l’identité visuelle de cet événement, de la création du concept graphique à la réalisation des supports de communication, notamment une affiche et des flyers promotionnels.",
   "blocks": [
     {
-      "type": "logo",
-      "image": "/_img/2026-Marche_aux_Plante/map-logo.svg",
-      "style": "none"
-    },
-    {
       "type": "duo",
       "image1": "/_img/2026-Marche_aux_Plante/map-affiche-1.webp",
       "image2": "/_img/2026-Marche_aux_Plante/map-impressionaffiche.webp",
       "ratio": "4-5"
+    },
+    {
+      "type": "logo",
+      "image": "/_img/2026-Marche_aux_Plante/map-logo.svg",
+      "style": "none"
     },
     {
       "type": "palette",
