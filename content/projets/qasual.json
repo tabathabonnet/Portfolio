@@ -34,6 +34,11 @@
       "ratio": "4-5"
     },
     {
+      "type": "image",
+      "image": "/_img/2026-Qasual/img-1.webp",
+      "ratio": "16-9"
+    },
+    {
       "type": "palette",
       "colors": [
         "#111111",
@@ -43,22 +48,26 @@
       ]
     },
     {
+      "type": "video",
+      "url": "https://youtube.com/shorts/_7dNUiRM_eQ?feature=share",
+      "vertical": false
+    },
+    {
+      "type": "duo",
+      "image1": "/_img/2026-Qasual/img-12.webp",
+      "image2": "/_img/2026-Qasual/img-5.webp",
+      "ratio": "4-5"
+    },
+    {
       "type": "gallery",
       "images": [
         "/_img/2026-Qasual/img-12.webp",
         "/_img/2026-Qasual/img-5.webp",
         "/_img/2026-Qasual/img-7.webp",
-        "/_img/2026-Qasual/img-1.webp",
         "/_img/2026-Qasual/img-4.webp",
         "/_img/2026-Qasual/img-2.webp",
-        "/_img/2026-Qasual/img-9.webp",
         "/_img/2026-Qasual/img-11.webp"
       ]
-    },
-    {
-      "type": "video",
-      "url": "https://youtube.com/shorts/_7dNUiRM_eQ?feature=share",
-      "vertical": false
     },
     {
       "type": "image",
