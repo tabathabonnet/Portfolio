@@ -13,5 +13,20 @@
   "role": "Graphiste",
   "client": "QoQa",
   "cover": "/_img/_img-Projet/couv-merchotterbeer-2.webp",
-  "cover_vertical": false
+  "cover_vertical": false,
+  "home_thumb": "/_img/2026-Merch_Otterbeer/otterbeer-tshirtmockup.webp",
+  "lead": "Lors de l’édition 2026 du Otter Beer Festival organisé par QoQa (Festival de bière au QG Center a Bussigny). J’ai eu l’occasion de designer le merch exclusif de l’événement, dédié au staff du festival. En réalisant une illustration unique représentant l’esprit du festival",
+  "blocks": [
+    {
+      "type": "logo",
+      "image": "/_img/2026-Merch_Otterbeer/illu-otterbeerfestival.svg",
+      "style": "none"
+    },
+    {
+      "type": "duo",
+      "image1": "/_img/2026-Merch_Otterbeer/tshirt-otterbeer.webp",
+      "image2": "/_img/2026-Merch_Otterbeer/otterbeer-tshirtmockup.webp",
+      "ratio": "4-5"
+    }
+  ]
 }
