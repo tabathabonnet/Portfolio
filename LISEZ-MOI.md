@@ -58,7 +58,7 @@ Pour travailler sans publier : décoche **Publié**. Le projet reste en brouillo
 | Mise en page | Pour quoi | Ce que tu remplis |
 |---|---|---|
 | **Photo** | Séries photo | Texte de présentation + **Galerie** (tu sélectionnes toutes les images d'un coup, l'ordre de la liste = l'ordre du site) |
-| **Étude de cas — blocs empilés** | Graphisme, branding, motion (comme Qasual) | Accroche + **Blocs** : texte avec étiquette, image pleine largeur, logo, duo, trio, image décalée, galerie, vidéo, palette de couleurs |
+| **Étude de cas — blocs empilés** | Graphisme, branding, motion (comme Qasual) | Accroche + **Blocs** : texte avec étiquette, image pleine largeur, logo, duo, trio, image décalée, galerie, vidéo, **animation en boucle**, palette de couleurs |
 | **Étude de cas — colonne fixe** | Projets très visuels | Les mêmes blocs ; les textes vont dans la colonne de gauche, les visuels défilent à droite |
 
 Dans les mises en page « étude de cas », **la couverture s'affiche automatiquement en premier**. Ensuite tu ajoutes, supprimes et réordonnes les blocs comme tu veux.
@@ -69,6 +69,9 @@ Dans les mises en page « étude de cas », **la couverture s'affiche automatiqu
 - **Numéros de l'accueil** (01, 02, 03…) : recalculés.
 - **Vidéo** : colle simplement le lien Vimeo ou YouTube.
 - **Palette** : saisis des codes comme `#8FD6BD`.
+
+### Animations en boucle (à la place des GIF)
+Un GIF est très lourd. Utilise plutôt une **courte vidéo MP4 muette** : même effet (elle tourne en boucle, sans son, sans bouton), mais 10 à 20 fois plus légère. Dans les blocs, choisis **Animation en boucle** et envoie ton fichier MP4 (moins de 5 Mo). Les animations ne se lancent que lorsqu'elles sont à l'écran.
 
 ### Rangement des images
 Garde un dossier par projet (`_img/2026-NomDuProjet/`). Les noms de fichiers n'ont plus besoin d'être `img-1.webp`, `img-2.webp`… Les espaces et accents sont nettoyés automatiquement.

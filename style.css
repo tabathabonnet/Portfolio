@@ -593,11 +593,13 @@ ul { list-style: none; margin: 0; padding: 0; }
 
 /* Décalage à droite (ex. un média en 8 colonnes aligné à droite) */
 .start-5 { grid-column-start: 5; }
+.start-4 { grid-column-start: 4; }
+.start-3 { grid-column-start: 3; }
 
 @media (max-width: 720px) {
   .span-8, .span-6, .span-4 { grid-column: span 12; }
   .span-3 { grid-column: span 6; }
-  .start-5 { grid-column-start: auto; }
+  .start-5, .start-4, .start-3 { grid-column-start: auto; }
 }
 
 /* Vidéo intégrée (Vimeo / YouTube) ou fichier local */

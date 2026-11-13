@@ -206,6 +206,28 @@ const checkImage = (src, where) => {
   if (!fs.existsSync(diskPath(src))) warn(`${where} : image introuvable → ${src}`);
 };
 
+/* ---------- animation en boucle (MP4 / WebM, ou GIF en dernier recours) ---------- */
+
+const MAX_LOOP_MB = 5;
+const loopSizes = { full: 'span-12', wide: 'span-8', half: 'span-6' };
+
+// Renvoie le contenu du cadre (.media) : une <video> muette qui boucle, ou une <img> pour un GIF.
+function loopMedia(b, where) {
+  const src = b.video || b.file || b.image;
+  if (!src) return '';
+  const file = diskPath(src);
+  if (!fs.existsSync(file)) warn(`${where} : animation introuvable → ${src}`);
+  else {
+    const mb = fs.statSync(file).size / 1048576;
+    if (mb > MAX_LOOP_MB) warn(`${where} : animation lourde (${mb.toFixed(1)} Mo) → ${src}. Vise moins de ${MAX_LOOP_MB} Mo (MP4 plutôt que GIF).`);
+  }
+  const alt = esc(b.alt || b.caption || 'Animation');
+  if (/\.gif$/i.test(src)) return `<img src="${esc(normPath(src))}" alt="${alt}" loading="lazy">`;
+  const type = /\.webm$/i.test(src) ? 'video/webm' : 'video/mp4';
+  const poster = b.poster ? ` poster="${esc(normPath(b.poster))}"` : '';
+  return `<video data-loop muted loop playsinline preload="none"${poster} aria-label="${alt}"><source src="${esc(normPath(src))}" type="${type}"></video>`;
+}
+
 const eyebrowOf = (p) => [p.discipline, p.year].filter(Boolean).join(' — ');
 const imgAlt = (p, n) => `${p.title} — image ${n}`;
 
@@ -363,6 +385,18 @@ ${paragraphs(b.body, '        ')}
     if (!b.image) return '';
     return section(figure(b.image, b.alt || `${p.title} — visuel`, ratioOf(b.ratio, '16-9'), 'span-12', b.caption));
   }
+  if (t === 'loop') {
+    const inner = loopMedia(b, w);
+    if (!inner) return '';
+    const span = loopSizes[b.size] || 'span-12';
+    const start = span === 'span-8' ? ' start-3' : span === 'span-6' ? ' start-4' : '';
+    return section(`      <figure class="media-fig ${span}${start}">
+        <div class="media ratio-${ratioOf(b.ratio, '16-9')}">
+          ${inner}
+        </div>${b.caption ? `
+        <figcaption class="caption">${esc(b.caption)}</figcaption>` : ''}
+      </figure>`);
+  }
   if (t === 'logo') {
     checkImage(b.image, w);
     if (!b.image) return '';
@@ -497,6 +531,17 @@ function renderSplit(p, all) {
           figs.push(half(src, imgAlt(p, k + 1), isPortrait(src) ? '3-4' : '3-2', ''))
         );
         break;
+      case 'loop': {
+        const inner = loopMedia(b, `${p.title} (bloc ${i + 1})`);
+        if (inner)
+          figs.push(`        <figure${b.size === 'half' ? '' : ' class="full"'}>
+          <div class="media ratio-${ratioOf(b.ratio, '16-9')}">
+            ${inner}
+          </div>${b.caption ? `
+          <figcaption class="caption">${esc(b.caption)}</figcaption>` : ''}
+        </figure>`);
+        break;
+      }
       case 'logo':
         if (b.image) {
           checkImage(b.image, p.title);

@@ -13,7 +13,7 @@ media:
     input: _img          # dossier dans le dépôt
     output: /_img        # chemin enregistré dans les fiches
     rename: safe         # espaces et accents remplacés automatiquement
-    extensions: [webp, jpg, jpeg, png, svg, gif]
+    extensions: [webp, jpg, jpeg, png, svg, gif, mp4, webm]
 
 content:
 
@@ -278,6 +278,41 @@ content:
                 media: images
                 options:
                   multiple: true
+
+          - name: loop
+            label: Animation en boucle (MP4 ou WebM)
+            fields:
+              - name: video
+                label: Fichier de l'animation
+                description: "MP4 (ou WebM) recommandé, moins de 5 Mo. Un GIF fonctionne aussi mais il est beaucoup plus lourd."
+                type: file
+                media: images
+              - name: poster
+                label: Image d'attente (facultatif)
+                description: Affichée avant le démarrage de l'animation.
+                type: image
+                media: images
+              - name: size
+                label: Largeur
+                type: select
+                default: full
+                options:
+                  values:
+                    - value: full
+                      label: Pleine largeur
+                    - value: wide
+                      label: Large (8 colonnes, centrée)
+                    - value: half
+                      label: Moyenne (6 colonnes, centrée)
+              - name: ratio
+                label: Format
+                type: select
+                default: "16-9"
+                options:
+                  values: ["16-9", "3-2", "4-3", "4-5", "3-4", "1-1"]
+              - name: caption
+                label: Légende (facultatif)
+                type: string
 
           - name: video
             label: Vidéo (Vimeo ou YouTube)

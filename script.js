@@ -58,3 +58,34 @@ if (filterButtons.length && workCards.length) {
     });
   });
 }
+
+// ============================================
+// Animations en boucle : lecture seulement quand elles sont visibles
+// (économise la batterie et la bande passante)
+// ============================================
+const loopVideos = document.querySelectorAll("video[data-loop]");
+
+if (loopVideos.length) {
+  if ("IntersectionObserver" in window) {
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const v = entry.target;
+          if (entry.isIntersecting) {
+            const p = v.play();
+            if (p && p.catch) p.catch(() => {});
+          } else {
+            v.pause();
+          }
+        });
+      },
+      { rootMargin: "200px 0px", threshold: 0.01 }
+    );
+    loopVideos.forEach((v) => io.observe(v));
+  } else {
+    loopVideos.forEach((v) => {
+      const p = v.play();
+      if (p && p.catch) p.catch(() => {});
+    });
+  }
+}
