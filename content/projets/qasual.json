@@ -73,7 +73,7 @@
     {
       "type": "video",
       "url": "https://youtube.com/shorts/_7dNUiRM_eQ?feature=share",
-      "vertical": true
+      "vertical": false
     },
     {
       "type": "image",
