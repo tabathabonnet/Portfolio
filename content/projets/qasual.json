@@ -48,11 +48,6 @@
       ]
     },
     {
-      "type": "video",
-      "url": "https://youtube.com/shorts/_7dNUiRM_eQ?feature=share",
-      "vertical": false
-    },
-    {
       "type": "duo",
       "image1": "/_img/2026-Qasual/img-12.webp",
       "image2": "/_img/2026-Qasual/img-5.webp",
@@ -74,6 +69,11 @@
       "type": "image",
       "image": "/_img/2026-Qasual/img-2.webp",
       "ratio": "4-3"
+    },
+    {
+      "type": "video",
+      "url": "https://youtube.com/shorts/_7dNUiRM_eQ?feature=share",
+      "vertical": true
     },
     {
       "type": "image",
