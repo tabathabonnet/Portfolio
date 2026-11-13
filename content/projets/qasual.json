@@ -59,11 +59,21 @@
       "ratio": "4-5"
     },
     {
+      "type": "image",
+      "image": "/_img/2026-Qasual/img-7.webp",
+      "ratio": "4-3"
+    },
+    {
       "type": "gallery",
       "images": [
         "/_img/2026-Qasual/img-4.webp",
         "/_img/2026-Qasual/img-11.webp"
       ]
+    },
+    {
+      "type": "image",
+      "image": "/_img/2026-Qasual/img-2.webp",
+      "ratio": "4-3"
     },
     {
       "type": "image",
