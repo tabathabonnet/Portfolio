@@ -1,0 +1,17 @@
+{
+  "title": "Merch Staff - Otter Beer Festival",
+  "published": true,
+  "layout": "split",
+  "order": 6,
+  "featured": false,
+  "categories": [
+    "graphisme",
+    "illustration"
+  ],
+  "discipline": "Graphisme & Illustration",
+  "year": "2026",
+  "role": "Graphiste",
+  "client": "QoQa",
+  "cover": "/_img/_img-Projet/couv-merchotterbeer-2.webp",
+  "cover_vertical": false
+}
