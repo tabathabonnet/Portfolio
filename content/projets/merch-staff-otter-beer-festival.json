@@ -23,10 +23,14 @@
       "style": "none"
     },
     {
-      "type": "duo",
-      "image1": "/_img/2026-Merch_Otterbeer/tshirt-otterbeer.webp",
-      "image2": "/_img/2026-Merch_Otterbeer/otterbeer-tshirtmockup.webp",
+      "type": "image",
+      "image": "/_img/2026-Merch_Otterbeer/otterbeer-tshirtmockup.webp",
       "ratio": "4-5"
+    },
+    {
+      "type": "image",
+      "image": "/_img/2026-Merch_Otterbeer/tshirt-otterbeer.webp",
+      "ratio": "1-1"
     }
   ]
 }
