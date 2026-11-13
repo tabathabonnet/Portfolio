@@ -148,9 +148,9 @@ const footer = (site) => `<footer class="site-footer wrap">
     </div>
     <div class="footer-col">
       <h3>Réseaux</h3>
-      <a href="${esc(site.instagram)}">Instagram</a>
-      <a href="${esc(site.linkedin)}">LinkedIn</a>
-${site.tiktok ? `\n      <a href="${esc(site.tiktok)}">TikTok</a>` : ''}
+      <a href="${esc(site.instagram)}" target="_blank" rel="noopener">Instagram</a>
+      <a href="${esc(site.linkedin)}" target="_blank" rel="noopener">LinkedIn</a>
+${site.tiktok ? `\n      <a href="${esc(site.tiktok)}" target="_blank" rel="noopener">TikTok</a>` : ''}
     </div>
     <div class="footer-col">
       <h3>Site</h3>
@@ -325,7 +325,11 @@ const figure = (src, alt, ratio, spanClass, caption, lazy = true) => `      <fig
       </figure>`;
 
 const swatches = (colors) => {
-  const ok = (colors || []).map((c) => String(c).trim()).filter((c) => /^#[0-9a-fA-F]{3,8}$/.test(c));
+  // Le « # » est facultatif : « a9d598 » et « #a9d598 » sont acceptés.
+  const ok = (colors || [])
+    .map((c) => String(c).trim())
+    .filter((c) => /^#?[0-9a-fA-F]{3,8}$/.test(c))
+    .map((c) => (c.startsWith('#') ? c : '#' + c));
   if (!ok.length) return '';
   return `      <div class="swatches">
 ${ok
@@ -597,8 +601,8 @@ function buildProjectsIndex(all, site) {
       <div class="filters" role="group" aria-label="Filtrer par catégorie">
         <button class="filter-btn active" data-filter="all">Tout</button>
         <button class="filter-btn" data-filter="photo">Photographie</button>
-        <button class="filter-btn" data-filter="illustration">Illustration</button>
         <button class="filter-btn" data-filter="graphisme">Graphisme</button>
+        <button class="filter-btn" data-filter="illustration">Illustration</button>
         <button class="filter-btn" data-filter="video">Vidéo</button>
       </div>
     </div>

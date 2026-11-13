@@ -74,10 +74,10 @@ content:
           values:
             - value: photo
               label: Photographie
-            - value: illustration
-              label: Illustration
             - value: graphisme
               label: Graphisme
+            - value: illustration
+              label: Illustration
             - value: video
               label: Vidéo
 
@@ -298,7 +298,7 @@ content:
             label: Palette de couleurs
             fields:
               - name: colors
-                label: Couleurs (codes hexadécimaux, ex. #111111)
+                label: Couleurs (codes hexadécimaux, ex. #111111 ou 111111)
                 type: string
                 list: true
 
