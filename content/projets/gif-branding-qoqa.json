@@ -1,7 +1,7 @@
 {
-  "title": "GIF branding - QoQa",
+  "title": "Animations branding - QoQa",
   "published": true,
-  "layout": "photo",
+  "layout": "split",
   "featured": true,
   "categories": [
     "video"
@@ -15,6 +15,10 @@
   "blocks": [
     {
       "type": "loop",
+      "videos": [
+        "/_img/anim-appmotion.mp4",
+        "/_img/2026-Anims_QoQa/anim-beer.mp4"
+      ],
       "columns": "1",
       "size": "full",
       "ratio": "1-1"
