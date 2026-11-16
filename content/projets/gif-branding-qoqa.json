@@ -16,15 +16,14 @@
     {
       "type": "loop",
       "videos": [
-        "/_img/anim-appphone.mp4",
-        "/_img/anim-appmotion.mp4",
-        "/_img/2026-Anims_QoQa/anim-appcanap.mp4",
         "/_img/anim-beer.mp4",
         "/_img/2026-Anims_QoQa/anim-clickmain.mp4",
-        "/_img/2026-Anims_QoQa/anim-coeur.mp4",
-        "/_img/2026-Anims_QoQa/anim-swip.mp4",
+        "/_img/anim-appphone.mp4",
+        "/_img/2026-Anims_QoQa/anim-appcanap.mp4",
         "/_img/anim-new.mp4",
-        "/_img/2026-Anims_QoQa/anim-staytuned.mp4"
+        "/_img/2026-Anims_QoQa/anim-staytuned.mp4",
+        "/_img/2026-Anims_QoQa/anim-coeur.mp4",
+        "/_img/2026-Anims_QoQa/anim-swip.mp4"
       ],
       "columns": "3",
       "size": "full",
