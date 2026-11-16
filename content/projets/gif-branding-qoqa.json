@@ -1,0 +1,23 @@
+{
+  "title": "GIF branding - QoQa",
+  "published": true,
+  "layout": "photo",
+  "featured": true,
+  "categories": [
+    "video"
+  ],
+  "discipline": "Motion design",
+  "year": "2025 - 2026",
+  "role": "Motion Designer",
+  "client": "QoQa",
+  "cover": "/_img/_img-Projet/couv-animqoqa.webp",
+  "cover_vertical": false,
+  "blocks": [
+    {
+      "type": "loop",
+      "columns": "1",
+      "size": "full",
+      "ratio": "1-1"
+    }
+  ]
+}
