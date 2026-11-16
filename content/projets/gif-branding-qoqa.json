@@ -2,7 +2,7 @@
   "title": "Animations branding - QoQa",
   "published": true,
   "layout": "split",
-  "featured": true,
+  "featured": false,
   "categories": [
     "video"
   ],
@@ -19,7 +19,7 @@
         "/_img/anim-appmotion.mp4",
         "/_img/2026-Anims_QoQa/anim-beer.mp4"
       ],
-      "columns": "1",
+      "columns": "2",
       "size": "full",
       "ratio": "1-1"
     }
