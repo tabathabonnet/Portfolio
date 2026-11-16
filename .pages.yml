@@ -280,20 +280,30 @@ content:
                   multiple: true
 
           - name: loop
-            label: Animation en boucle (MP4 ou WebM)
+            label: Animations en boucle (MP4 ou WebM)
             fields:
-              - name: video
-                label: Fichier de l'animation
-                description: "MP4 (ou WebM) recommandé, moins de 5 Mo. Un GIF fonctionne aussi mais il est beaucoup plus lourd."
+              - name: videos
+                label: Fichiers des animations
+                description: "MP4 (ou WebM) recommandé, moins de 5 Mo chacun. Tu peux en choisir plusieurs : l'ordre de la liste est l'ordre sur le site."
                 type: file
                 media: images
-              - name: poster
-                label: Image d'attente (facultatif)
-                description: Affichée avant le démarrage de l'animation.
-                type: image
-                media: images
+                options:
+                  multiple: true
+              - name: columns
+                label: Animations par ligne
+                description: "1 = une grande animation par ligne. 2 ou 3 = galerie (les lignes se remplissent l'une après l'autre)."
+                type: select
+                default: "1"
+                options:
+                  values:
+                    - value: "1"
+                      label: 1 par ligne
+                    - value: "2"
+                      label: 2 par ligne
+                    - value: "3"
+                      label: 3 par ligne
               - name: size
-                label: Largeur
+                label: Largeur (seulement pour 1 par ligne)
                 type: select
                 default: full
                 options:
@@ -305,7 +315,7 @@ content:
                     - value: half
                       label: Moyenne (6 colonnes, centrée)
               - name: ratio
-                label: Format
+                label: Format (identique pour toutes les animations du bloc)
                 type: select
                 default: "16-9"
                 options:

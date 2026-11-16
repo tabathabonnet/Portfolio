@@ -596,10 +596,16 @@ ul { list-style: none; margin: 0; padding: 0; }
 .start-4 { grid-column-start: 4; }
 .start-3 { grid-column-start: 3; }
 
+/* Un média décalé garde sa largeur : on précise début ET fin de colonne */
+.span-8.start-5 { grid-column: 5 / span 8; }
+.span-8.start-3 { grid-column: 3 / span 8; }
+.span-6.start-4 { grid-column: 4 / span 6; }
+
 @media (max-width: 720px) {
   .span-8, .span-6, .span-4 { grid-column: span 12; }
   .span-3 { grid-column: span 6; }
   .start-5, .start-4, .start-3 { grid-column-start: auto; }
+  .span-8.start-5, .span-8.start-3, .span-6.start-4 { grid-column: span 12; }
 }
 
 /* Vidéo intégrée (Vimeo / YouTube) ou fichier local */

@@ -211,22 +211,32 @@ const checkImage = (src, where) => {
 const MAX_LOOP_MB = 5;
 const loopSizes = { full: 'span-12', wide: 'span-8', half: 'span-6' };
 
-// Renvoie le contenu du cadre (.media) : une <video> muette qui boucle, ou une <img> pour un GIF.
-function loopMedia(b, where) {
-  const src = b.video || b.file || b.image;
-  if (!src) return '';
+// Une animation -> <video> muette qui boucle (ou <img> pour un GIF).
+function loopTag(src, alt, where, poster) {
   const file = diskPath(src);
   if (!fs.existsSync(file)) warn(`${where} : animation introuvable → ${src}`);
   else {
     const mb = fs.statSync(file).size / 1048576;
     if (mb > MAX_LOOP_MB) warn(`${where} : animation lourde (${mb.toFixed(1)} Mo) → ${src}. Vise moins de ${MAX_LOOP_MB} Mo (MP4 plutôt que GIF).`);
   }
-  const alt = esc(b.alt || b.caption || 'Animation');
-  if (/\.gif$/i.test(src)) return `<img src="${esc(normPath(src))}" alt="${alt}" loading="lazy">`;
+  const a = esc(alt || 'Animation');
+  if (/\.gif$/i.test(src)) return `<img src="${esc(normPath(src))}" alt="${a}" loading="lazy">`;
   const type = /\.webm$/i.test(src) ? 'video/webm' : 'video/mp4';
-  const poster = b.poster ? ` poster="${esc(normPath(b.poster))}"` : '';
-  return `<video data-loop muted loop playsinline preload="none"${poster} aria-label="${alt}"><source src="${esc(normPath(src))}" type="${type}"></video>`;
+  const p = poster ? ` poster="${esc(normPath(poster))}"` : '';
+  return `<video data-loop muted loop playsinline preload="none"${p} aria-label="${a}"><source src="${esc(normPath(src))}" type="${type}"></video>`;
 }
+
+// Fichiers d'un bloc « animation » : liste (nouveau) ou fichier unique (anciennes fiches).
+const loopFiles = (b) => {
+  const many = (Array.isArray(b.videos) ? b.videos : []).filter(Boolean);
+  if (many.length) return many;
+  const one = b.video || b.file || b.image;
+  return one ? [one] : [];
+};
+const loopCols = (b) => {
+  const n = Number(b.columns);
+  return n === 2 || n === 3 ? n : 1;
+};
 
 const eyebrowOf = (p) => [p.discipline, p.year].filter(Boolean).join(' — ');
 const imgAlt = (p, n) => `${p.title} — image ${n}`;
@@ -386,16 +396,21 @@ ${paragraphs(b.body, '        ')}
     return section(figure(b.image, b.alt || `${p.title} — visuel`, ratioOf(b.ratio, '16-9'), 'span-12', b.caption));
   }
   if (t === 'loop') {
-    const inner = loopMedia(b, w);
-    if (!inner) return '';
-    const span = loopSizes[b.size] || 'span-12';
-    const start = span === 'span-8' ? ' start-3' : span === 'span-6' ? ' start-4' : '';
-    return section(`      <figure class="media-fig ${span}${start}">
-        <div class="media ratio-${ratioOf(b.ratio, '16-9')}">
-          ${inner}
-        </div>${b.caption ? `
+    const files = loopFiles(b);
+    if (!files.length) return '';
+    const cols = loopCols(b);
+    const ratio = ratioOf(b.ratio, '16-9');
+    // 1 colonne : largeur au choix ; 2 ou 3 colonnes : la grille se remplit ligne par ligne.
+    const span = cols === 3 ? 'span-4' : cols === 2 ? 'span-6' : loopSizes[b.size] || 'span-12';
+    const start = cols === 1 ? (span === 'span-8' ? ' start-3' : span === 'span-6' ? ' start-4' : '') : '';
+    const figs = files.map((src, i) => `      <figure class="media-fig ${span}${start}">
+        <div class="media ratio-${ratio}">
+          ${loopTag(src, `${p.title} — animation ${i + 1}`, w)}
+        </div>${files.length === 1 && b.caption ? `
         <figcaption class="caption">${esc(b.caption)}</figcaption>` : ''}
       </figure>`);
+    if (files.length > 1 && b.caption) figs.push(`      <p class="caption" style="grid-column: 1 / -1; margin: 0;">${esc(b.caption)}</p>`);
+    return section(figs.join('\n'));
   }
   if (t === 'logo') {
     checkImage(b.image, w);
@@ -532,14 +547,18 @@ function renderSplit(p, all) {
         );
         break;
       case 'loop': {
-        const inner = loopMedia(b, `${p.title} (bloc ${i + 1})`);
-        if (inner)
-          figs.push(`        <figure${b.size === 'half' ? '' : ' class="full"'}>
-          <div class="media ratio-${ratioOf(b.ratio, '16-9')}">
-            ${inner}
-          </div>${b.caption ? `
+        const files = loopFiles(b);
+        const solo = loopCols(b) === 1;
+        const ratio = ratioOf(b.ratio, '16-9');
+        files.forEach((src, k) =>
+          figs.push(`        <figure${solo ? ' class="full"' : ''}>
+          <div class="media ratio-${ratio}">
+            ${loopTag(src, `${p.title} — animation ${k + 1}`, `${p.title} (bloc ${i + 1})`)}
+          </div>${files.length === 1 && b.caption ? `
           <figcaption class="caption">${esc(b.caption)}</figcaption>` : ''}
-        </figure>`);
+        </figure>`)
+        );
+        if (files.length > 1 && b.caption) figs.push(`        <p class="caption full" style="grid-column: 1 / -1; margin: 0;">${esc(b.caption)}</p>`);
         break;
       }
       case 'logo':
