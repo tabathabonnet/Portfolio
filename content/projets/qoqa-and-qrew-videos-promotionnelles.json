@@ -1,0 +1,38 @@
+{
+  "title": "QoQa & Qrew – Vidéos promotionnelles",
+  "published": true,
+  "layout": "split",
+  "featured": true,
+  "categories": [
+    "video"
+  ],
+  "discipline": "Vidéo",
+  "year": "2025 - 2026",
+  "role": "Vidéaste",
+  "client": "QoQa",
+  "cover": "/_img/_img-Projet/couv-videoqoqa.webp",
+  "cover_vertical": false,
+  "lead": "Durant mes cinq années chez QoQa, j’ai eu l’occasion de participer à la réalisation de nombreux projets vidéo destinés aux différents réseaux sociaux de la plateforme. De la prise de vue au montage, j’ai pu intervenir à chaque étape de la production, aussi bien lors de tournages en studio que sur le terrain, en collaboration avec différents partenaires.",
+  "blocks": [
+    {
+      "type": "video",
+      "url": "https://www.instagram.com/reel/DUc46p1DUNg/?utm_source=ig_web_copy_link&rpxt=MzRlODBiNWFlZA==&srtk=MzRlODBiNWFlZA==",
+      "vertical": true
+    },
+    {
+      "type": "video",
+      "url": "https://www.instagram.com/reel/Cps1nyWIe41/?utm_source=ig_web_copy_link&xtok=MzRlODBiNWFlZA==&srtk=MzRlODBiNWFlZA==",
+      "vertical": true
+    },
+    {
+      "type": "video",
+      "url": "https://www.instagram.com/reel/DSUih4mDfz5/?utm_source=ig_web_copy_link&cplk=MzRlODBiNWFlZA==&srtk=MzRlODBiNWFlZA==",
+      "vertical": true
+    },
+    {
+      "type": "video",
+      "url": "https://www.instagram.com/reel/DHLxOnNPtx1/?utm_source=ig_web_copy_link&vrfl=MzRlODBiNWFlZA==&srtk=MzRlODBiNWFlZA==",
+      "vertical": true
+    }
+  ]
+}
