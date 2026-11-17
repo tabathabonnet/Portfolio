@@ -16,12 +16,8 @@
   "cover": "/_img/_img-Projet/Couv-Qasual.webp",
   "cover_vertical": false,
   "home_thumb": "/_img/2026-Qasual/img-3.webp",
+  "lead": "Réalisé dans le cadre de mon travail de diplôme, Qasual est un concept de marque de merchandising imaginé pour QoQa. L’objectif : créer un univers graphique distinctif à travers une collection estivale de quatre accessoires, alliant simplicité, praticité et design contemporain.\n\nDu branding à la conception d’une maquette web interactive, en passant par la création des produits, le shooting photo et la réalisation d’une vidéo promotionnelle, ce projet m’a permis de développer une identité complète et cohérente sur différents supports.",
   "blocks": [
-    {
-      "type": "text",
-      "label": "Contexte",
-      "body": "Réalisé dans le cadre de mon travail de diplôme, Qasual est un concept de marque de merchandising imaginé pour QoQa. L’objectif : créer un univers graphique distinctif à travers une collection estivale de quatre accessoires, alliant simplicité, praticité et design contemporain.\n\nDu branding à la conception d’une maquette web interactive, en passant par la création des produits, le shooting photo et la réalisation d’une vidéo promotionnelle, ce projet m’a permis de développer une identité complète et cohérente sur différents supports."
-    },
     {
       "type": "logo",
       "image": "/_img/2026-Qasual/Qasual-Logo.svg",
