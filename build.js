@@ -266,12 +266,14 @@ function instagramPermalink(v) {
   return `https://www.instagram.com/${kind}/${m[2]}/`;
 }
 
-/* Cadre vidéo commun à toutes les mises en page (null si lien non reconnu) */
+/* Cadre vidéo commun à toutes les mises en page (null si lien non reconnu).
+   Instagram : on charge le lecteur officiel et on le recadre pour ne garder
+   que la vidéo, au format reel 9:16 (sans en-tête ni bandes noires). */
 function videoEmbed(b, p, pad) {
   const ig = instagramPermalink(b.url);
   if (ig)
-    return `${pad}<div class="video-frame instagram">
-${pad}  <blockquote class="instagram-media" data-instgrm-permalink="${esc(ig)}" data-instgrm-version="14"><a href="${esc(ig)}" target="_blank" rel="noopener">Voir la vidéo sur Instagram</a></blockquote>
+    return `${pad}<div class="video-frame vertical instagram">
+${pad}  <iframe src="${esc(ig)}embed/" title="${esc(`Vidéo — ${p.title}`)}" scrolling="no" loading="lazy" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
 ${pad}</div>`;
   const src = videoSrc(b.url);
   if (!src) return null;
@@ -481,7 +483,7 @@ ${imgs}
   if (t === 'video') {
     const frame = videoEmbed(b, p, '        ');
     if (!frame) { if (b.url) warn(`${w} : lien vidéo non reconnu → ${b.url}`); return ''; }
-    return section(`      <figure class="media-fig span-12">
+    return section(`      <figure class="media-fig ${b.half ? 'span-6 video-half' : 'span-12'}">
 ${frame}${b.caption ? `
         <figcaption class="caption">${esc(b.caption)}</figcaption>` : ''}
       </figure>`);
@@ -502,7 +504,25 @@ function renderBlocks(p, all) {
   const cover = p.cover
     ? section(figure(p.cover, `${p.title} — visuel principal`, '16-9', 'span-12', '', false))
     : '';
-  const blocks = (p.blocks || []).map((b, i) => renderBlock(b, p, i + 1)).join('\n');
+  const list = p.blocks || [];
+  const out = [];
+  for (let i = 0; i < list.length; i++) {
+    const b = list[i], nx = list[i + 1];
+    const isHalf = (x) => x && x.type === 'video' && x.half;
+    if (isHalf(b) && isHalf(nx)) {
+      const fig = (v) => {
+        const frame = videoEmbed(v, p, '        ');
+        if (!frame) { if (v.url) warn(`${p.title} : lien vidéo non reconnu → ${v.url}`); return ''; }
+        return `      <figure class="media-fig span-6 video-half">
+${frame}${v.caption ? `
+        <figcaption class="caption">${esc(v.caption)}</figcaption>` : ''}
+      </figure>`;
+      };
+      out.push(section([fig(b), fig(nx)].filter(Boolean).join('\n')));
+      i++;
+    } else out.push(renderBlock(b, p, i + 1));
+  }
+  const blocks = out.join('\n');
   return `<main>
 
 ${projectHead(p)}
@@ -595,7 +615,7 @@ function renderSplit(p, all) {
       case 'video': {
         const frame = videoEmbed(b, p, '          ');
         if (frame)
-          figs.push(`        <figure class="full">
+          figs.push(`        <figure${b.half ? ' class="video-half"' : ' class="full"'}>
 ${frame}${b.caption ? `
           <figcaption class="caption">${esc(b.caption)}</figcaption>` : ''}
         </figure>`);
@@ -657,10 +677,7 @@ function buildProjectPage(p, all, site) {
   const desc =
     (p.description && p.description.trim()) ||
     `${p.title} — ${[p.discipline, p.year].filter(Boolean).join(', ')}. Portfolio de Tabatha, interactive media designer.`;
-  const igScript = body.includes('class="instagram-media"')
-    ? '<script async src="https://www.instagram.com/embed.js"></script>\n'
-    : '';
-  return head(`${p.title} — Tabatha`, desc) + '\n' + header('') + '\n' + body + '\n' + igScript + footer(site);
+  return head(`${p.title} — Tabatha`, desc) + '\n' + header('') + '\n' + body + '\n' + footer(site);
 }
 
 function buildProjectsIndex(all, site) {
