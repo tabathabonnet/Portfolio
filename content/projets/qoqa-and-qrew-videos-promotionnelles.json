@@ -17,22 +17,26 @@
     {
       "type": "video",
       "url": "https://www.instagram.com/reel/DUc46p1DUNg/?utm_source=ig_web_copy_link&fqnt=NTc4MTIwNjQ2YQ==",
-      "vertical": true
+      "vertical": true,
+      "half": true
     },
     {
       "type": "video",
       "url": "https://www.instagram.com/reel/Cps1nyWIe41/?utm_source=ig_web_copy_link&xtok=MzRlODBiNWFlZA==&srtk=MzRlODBiNWFlZA==",
-      "vertical": true
+      "vertical": true,
+      "half": true
     },
     {
       "type": "video",
       "url": "https://www.instagram.com/reel/DSUih4mDfz5/?utm_source=ig_web_copy_link&cplk=MzRlODBiNWFlZA==&srtk=MzRlODBiNWFlZA==",
-      "vertical": true
+      "vertical": true,
+      "half": true
     },
     {
       "type": "video",
       "url": "https://www.instagram.com/reel/DHLxOnNPtx1/?utm_source=ig_web_copy_link&bqrl=NTc4MTIwNjQ2YQ==",
-      "vertical": true
+      "vertical": true,
+      "half": true
     }
   ]
 }
