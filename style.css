@@ -630,24 +630,22 @@ ul { list-style: none; margin: 0; padding: 0; }
   max-width: 420px;
 }
 
-/* Reel / post Instagram : la hauteur est gérée par le script d'Instagram */
+/* Reel Instagram : le lecteur officiel est recadré pour ne garder que la vidéo (9:16) */
 .video-frame.instagram {
-  aspect-ratio: auto;
-  max-width: 420px;
-  background: none;
-  overflow: visible;
-}
-
-.video-frame.instagram .instagram-media {
-  margin: 0 !important;
-  min-width: 0 !important;
-  width: 100% !important;
-  max-width: 100% !important;
+  background: #000;
 }
 
 .video-frame.instagram iframe {
-  position: static;
+  inset: auto;
+  top: -54px;                    /* masque l'en-tête Instagram */
+  left: -21.12%;                 /* centre la vidéo dans le cadre 4:5 d'Instagram */
+  width: 142.24%;
+  height: calc(100% + 280px);    /* le pied de page Instagram reste caché sous le cadre */
 }
+
+/* Deux vidéos côte à côte (option « Demi-largeur ») */
+.split-media figure.video-half { grid-column: auto; }
+.video-half .video-frame.vertical { max-width: none; }
 
 /* Palette de couleurs (optionnel, pratique pour un projet de graphisme) */
 .swatches {
