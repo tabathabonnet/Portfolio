@@ -630,6 +630,25 @@ ul { list-style: none; margin: 0; padding: 0; }
   max-width: 420px;
 }
 
+/* Reel / post Instagram : la hauteur est gérée par le script d'Instagram */
+.video-frame.instagram {
+  aspect-ratio: auto;
+  max-width: 420px;
+  background: none;
+  overflow: visible;
+}
+
+.video-frame.instagram .instagram-media {
+  margin: 0 !important;
+  min-width: 0 !important;
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+.video-frame.instagram iframe {
+  position: static;
+}
+
 /* Palette de couleurs (optionnel, pratique pour un projet de graphisme) */
 .swatches {
   grid-column: 1 / 13;

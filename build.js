@@ -258,6 +258,28 @@ function videoSrc(v) {
   return null;
 }
 
+/* Instagram (reel, post, IGTV) : renvoie le lien propre du contenu, sans les paramètres de partage */
+function instagramPermalink(v) {
+  const m = String(v || '').trim().match(/instagram\.com\/(?:[\w.]+\/)?(reels?|p|tv)\/([\w-]+)/);
+  if (!m) return null;
+  const kind = m[1] === 'reels' ? 'reel' : m[1];
+  return `https://www.instagram.com/${kind}/${m[2]}/`;
+}
+
+/* Cadre vidéo commun à toutes les mises en page (null si lien non reconnu) */
+function videoEmbed(b, p, pad) {
+  const ig = instagramPermalink(b.url);
+  if (ig)
+    return `${pad}<div class="video-frame instagram">
+${pad}  <blockquote class="instagram-media" data-instgrm-permalink="${esc(ig)}" data-instgrm-version="14"><a href="${esc(ig)}" target="_blank" rel="noopener">Voir la vidéo sur Instagram</a></blockquote>
+${pad}</div>`;
+  const src = videoSrc(b.url);
+  if (!src) return null;
+  return `${pad}<div class="video-frame${b.vertical ? ' vertical' : ''}">
+${pad}  <iframe src="${esc(src)}" title="${esc(`Vidéo — ${p.title}`)}" loading="lazy" allow="fullscreen; picture-in-picture" allowfullscreen></iframe>
+${pad}</div>`;
+}
+
 /* ---------- éléments d'en-tête de projet ---------- */
 
 function metaRow(p) {
@@ -457,12 +479,10 @@ ${imgs}
 `;
   }
   if (t === 'video') {
-    const src = videoSrc(b.url);
-    if (!src) { if (b.url) warn(`${w} : lien vidéo non reconnu → ${b.url}`); return ''; }
+    const frame = videoEmbed(b, p, '        ');
+    if (!frame) { if (b.url) warn(`${w} : lien vidéo non reconnu → ${b.url}`); return ''; }
     return section(`      <figure class="media-fig span-12">
-        <div class="video-frame${b.vertical ? ' vertical' : ''}">
-          <iframe src="${esc(src)}" title="${esc(`Vidéo — ${p.title}`)}" loading="lazy" allow="fullscreen; picture-in-picture" allowfullscreen></iframe>
-        </div>${b.caption ? `
+${frame}${b.caption ? `
         <figcaption class="caption">${esc(b.caption)}</figcaption>` : ''}
       </figure>`);
   }
@@ -573,12 +593,10 @@ function renderSplit(p, all) {
         }
         break;
       case 'video': {
-        const src = videoSrc(b.url);
-        if (src)
+        const frame = videoEmbed(b, p, '          ');
+        if (frame)
           figs.push(`        <figure class="full">
-          <div class="video-frame${b.vertical ? ' vertical' : ''}">
-            <iframe src="${esc(src)}" title="${esc(`Vidéo — ${p.title}`)}" loading="lazy" allow="fullscreen; picture-in-picture" allowfullscreen></iframe>
-          </div>${b.caption ? `
+${frame}${b.caption ? `
           <figcaption class="caption">${esc(b.caption)}</figcaption>` : ''}
         </figure>`);
         else if (b.url) warn(`${p.title} : lien vidéo non reconnu → ${b.url}`);
@@ -639,7 +657,10 @@ function buildProjectPage(p, all, site) {
   const desc =
     (p.description && p.description.trim()) ||
     `${p.title} — ${[p.discipline, p.year].filter(Boolean).join(', ')}. Portfolio de Tabatha, interactive media designer.`;
-  return head(`${p.title} — Tabatha`, desc) + '\n' + header('') + '\n' + body + '\n' + footer(site);
+  const igScript = body.includes('class="instagram-media"')
+    ? '<script async src="https://www.instagram.com/embed.js"></script>\n'
+    : '';
+  return head(`${p.title} — Tabatha`, desc) + '\n' + header('') + '\n' + body + '\n' + igScript + footer(site);
 }
 
 function buildProjectsIndex(all, site) {

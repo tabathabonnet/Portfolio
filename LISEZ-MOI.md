@@ -67,7 +67,7 @@ Dans les mises en page « étude de cas », **la couverture s'affiche automatiqu
 - **Portrait ou paysage** : détecté image par image dans les galeries, plus besoin de `class="portrait"`.
 - **Projet suivant** : suit l'ordre que tu as défini.
 - **Numéros de l'accueil** (01, 02, 03…) : recalculés.
-- **Vidéo** : colle simplement le lien Vimeo ou YouTube.
+- **Vidéo** : colle simplement le lien Vimeo, YouTube ou Instagram (reel ou post public). Pour Instagram, la case « Vidéo verticale » n'est pas nécessaire : la taille est gérée automatiquement.
 - **Palette** : saisis des codes comme `#8FD6BD`.
 
 ### Animations en boucle (à la place des GIF)
