@@ -325,7 +325,7 @@ content:
                 type: string
 
           - name: video
-            label: Vidéo (Vimeo ou YouTube)
+            label: Vidéo (Vimeo, YouTube ou Instagram)
             fields:
               - name: url
                 label: Lien de la vidéo
@@ -333,6 +333,11 @@ content:
                 type: string
               - name: vertical
                 label: Vidéo verticale (reel, story)
+                type: boolean
+                default: false
+              - name: half
+                label: Demi-largeur (2 vidéos côte à côte)
+                description: Coche-la sur deux vidéos qui se suivent pour les afficher l'une à côté de l'autre.
                 type: boolean
                 default: false
               - name: caption
