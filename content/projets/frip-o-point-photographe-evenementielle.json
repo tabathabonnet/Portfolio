@@ -2,8 +2,7 @@
   "title": "Frip O Point - Photographe événementielle",
   "published": true,
   "layout": "photo",
-  "order": 5,
-  "featured": true,
+  "featured": false,
   "categories": [
     "photo"
   ],
