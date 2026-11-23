@@ -12,7 +12,7 @@
   "role": "Généraliste 3D",
   "client": "Eracom",
   "tools": "Blender, Premiere Pro",
-  "cover": "/_img/_img-Projet/couv-3draserei.webp",
+  "cover": "/_img/couv-3draserei.webp",
   "cover_vertical": false,
   "blocks": [
     {
@@ -27,7 +27,7 @@
     },
     {
       "type": "logo",
-      "image": "/_img/logo-raserei.svg",
+      "image": "/_img/2025-Raserei/logovideo-raserei.svg",
       "style": "none"
     },
     {
