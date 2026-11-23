@@ -24,7 +24,19 @@
     },
     {
       "type": "logo",
+      "image": "/_img/logo-raserei.svg",
       "style": "none"
+    },
+    {
+      "type": "gallery",
+      "images": [
+        "/_img/2025-Raserei/2025-sceneraserei-1.webp",
+        "/_img/2025-Raserei/2025-sceneraserei-2.webp",
+        "/_img/2025-Raserei/2025-sceneraserei-3.webp",
+        "/_img/2025-Raserei/2025-sceneraserei-4.webp",
+        "/_img/2025-Raserei/2025-sceneraserei-5.webp",
+        "/_img/2025-Raserei/2025-sceneraserei-6.webp"
+      ]
     }
   ]
 }
