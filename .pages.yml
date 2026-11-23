@@ -325,12 +325,17 @@ content:
                 type: string
 
           - name: video
-            label: Vidéo (Vimeo, YouTube ou Instagram)
+            label: Vidéo (Instagram, TikTok, YouTube ou Vimeo)
             fields:
               - name: url
                 label: Lien de la vidéo
-                description: Colle simplement l'adresse de la vidéo.
+                description: "Colle l'adresse de la vidéo (Instagram, TikTok, YouTube ou Vimeo). Pour TikTok, colle le lien complet qui contient /video/. Les visiteurs lancent la vidéo d'un clic, une seule à la fois."
                 type: string
+              - name: cover
+                label: Image d'aperçu (facultatif)
+                description: "L'aperçu est récupéré automatiquement pour Instagram, YouTube et Vimeo. Pour TikTok, ajoute une image pour un bel aperçu (sinon fond noir)."
+                type: image
+                media: images
               - name: vertical
                 label: Vidéo verticale (reel, story)
                 type: boolean

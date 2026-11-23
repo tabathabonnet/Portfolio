@@ -89,3 +89,37 @@ if (loopVideos.length) {
     });
   }
 }
+
+// ============================================
+// Vidéos Instagram / TikTok / YouTube / Vimeo : chargées au clic,
+// une seule à la fois (lancer une vidéo remet les autres à l'état d'aperçu)
+// ============================================
+const videoFrames = document.querySelectorAll(".video-facade");
+
+function resetVideo(frame) {
+  const iframe = frame.querySelector("iframe");
+  if (iframe) iframe.remove();
+  const play = frame.querySelector(".video-play");
+  if (play) play.hidden = false;
+  frame.classList.remove("is-playing");
+}
+
+videoFrames.forEach((frame) => {
+  const play = frame.querySelector(".video-play");
+  if (!play || frame.classList.contains("video-external")) return;
+  play.addEventListener("click", (e) => {
+    e.preventDefault();
+    videoFrames.forEach((other) => {
+      if (other !== frame && other.classList.contains("is-playing")) resetVideo(other);
+    });
+    const iframe = document.createElement("iframe");
+    iframe.src = frame.getAttribute("data-src");
+    iframe.title = frame.getAttribute("data-title") || "Vidéo";
+    iframe.setAttribute("allow", "autoplay; fullscreen; picture-in-picture; encrypted-media");
+    iframe.setAttribute("allowfullscreen", "");
+    iframe.setAttribute("scrolling", "no");
+    frame.appendChild(iframe);
+    play.hidden = true;
+    frame.classList.add("is-playing");
+  });
+});

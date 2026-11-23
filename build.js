@@ -15,6 +15,7 @@
 'use strict';
 const fs = require('fs');
 const path = require('path');
+const { spawnSync } = require('child_process');
 
 const ROOT = __dirname;
 const OUT = path.join(ROOT, 'dist');
@@ -241,44 +242,143 @@ const loopCols = (b) => {
 const eyebrowOf = (p) => [p.discipline, p.year].filter(Boolean).join(' — ');
 const imgAlt = (p, n) => `${p.title} — image ${n}`;
 
-/* ---------- vidéo (Vimeo / YouTube) ---------- */
+/* ---------- accès réseau à la construction (vignettes, liens TikTok courts) ----------
+   Tout est facultatif : si le réseau ne répond pas, le site se construit quand même
+   (la vidéo s'affiche alors sur un fond noir, sans vignette). */
 
-function videoSrc(v) {
+const UA = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0 Safari/605.1.15';
+
+function curl(args, timeout = 15) {
+  try {
+    const r = spawnSync('curl', ['-sSLf', '-m', String(timeout), '-A', UA, ...args], { maxBuffer: 30 * 1024 * 1024 });
+    return r.status === 0 && r.stdout ? r.stdout : null;
+  } catch (e) {
+    return null;
+  }
+}
+
+const imageExt = (b) =>
+  b && b.length > 2000
+    ? b[0] === 0xff && b[1] === 0xd8 ? 'jpg'
+    : b[0] === 0x89 && b[1] === 0x50 ? 'png'
+    : b.slice(0, 4).toString() === 'RIFF' && b.slice(8, 12).toString() === 'WEBP' ? 'webp'
+    : null
+    : null;
+
+const thumbCache = new Map();
+const refused = new Set(); // vidéos que la plateforme refuse d'intégrer
+
+// Télécharge l'image d'aperçu d'une vidéo dans dist/_vignettes/ ; renvoie son chemin relatif, ou '' si indisponible.
+function videoThumb(kind, id, tag) {
+  const key = `${kind}-${tag}`;
+  if (thumbCache.has(key)) return thumbCache.get(key);
+  let img = null;
+  if (kind === 'instagram') {
+    const html = curl([`https://www.instagram.com/${id.type}/${id.code}/embed/`]);
+    const text = html ? html.toString('utf8') : '';
+    const m = text.match(/<img[^>]*EmbeddedMediaImage[^>]*?\ssrc="([^"]+)"/);
+    if (m) img = curl([m[1].replace(/&amp;/g, '&')]);
+    else if (/may be broken|may have been removed|peut être brisé|a peut-être été supprimée/.test(text)) refused.add(key);
+  } else if (kind === 'youtube') {
+    img = curl([`https://img.youtube.com/vi/${id}/maxresdefault.jpg`]) || curl([`https://img.youtube.com/vi/${id}/hqdefault.jpg`]);
+  } else if (kind === 'vimeo') {
+    const j = curl([`https://vimeo.com/api/oembed.json?url=${encodeURIComponent('https://vimeo.com/' + id)}`]);
+    try {
+      const u = JSON.parse(j.toString('utf8')).thumbnail_url;
+      img = curl([u.replace(/_\d+x\d+(\.\w+)?$/, '_1280$1')]) || curl([u]);
+    } catch (e) { /* pas de vignette */ }
+  }
+  let out = '';
+  const ext = imageExt(img);
+  if (ext) {
+    const name = `${key.replace(/[^\w-]/g, '_')}.${ext}`;
+    fs.mkdirSync(path.join(OUT, '_vignettes'), { recursive: true });
+    fs.writeFileSync(path.join(OUT, '_vignettes', name), img);
+    out = `_vignettes/${name}`;
+  }
+  thumbCache.set(key, out);
+  return out;
+}
+
+/* ---------- identification du lien vidéo ---------- */
+
+// TikTok : lien complet (…/@compte/video/123…), ou lien court (vm.tiktok.com/…, tiktok.com/t/…) résolu à la construction.
+function tiktokId(v) {
   const s = String(v || '').trim();
-  if (!s) return null;
-  let m;
-  if ((m = s.match(/vimeo\.com\/(?:video\/)?(\d+)/)) || /^\d+$/.test(s)) {
-    const id = m ? m[1] : s;
-    return `https://player.vimeo.com/video/${id}?title=0&byline=0&portrait=0`;
+  let m = s.match(/tiktok\.com\/(?:@[\w.\-]+\/video|embed(?:\/v2)?|player\/v1)\/(\d{8,})/);
+  if (m) return m[1];
+  if (/^https?:\/\/(?:(?:vm|vt)\.tiktok\.com\/|(?:www\.)?tiktok\.com\/t\/)/.test(s)) {
+    const final = curl(['-o', '/dev/null', '-w', '%{url_effective}', s]);
+    m = final && final.toString('utf8').match(/\/video\/(\d{8,})/);
+    if (m) return m[1];
+    warn(`Lien TikTok court non résolu. Ouvre la vidéo dans ton navigateur et colle le lien complet (tiktok.com/@compte/video/…) → ${s}`);
   }
-  if ((m = s.match(/(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|embed\/|shorts\/))([\w-]{6,})/))) {
-    return `https://www.youtube.com/embed/${m[1]}`;
-  }
-  if (/^[\w-]{11}$/.test(s)) return `https://www.youtube.com/embed/${s}`;
   return null;
 }
 
-/* Instagram (reel, post, IGTV) : renvoie le lien propre du contenu, sans les paramètres de partage */
-function instagramPermalink(v) {
-  const m = String(v || '').trim().match(/instagram\.com\/(?:[\w.]+\/)?(reels?|p|tv)\/([\w-]+)/);
-  if (!m) return null;
-  const kind = m[1] === 'reels' ? 'reel' : m[1];
-  return `https://www.instagram.com/${kind}/${m[2]}/`;
+function videoInfo(v) {
+  const s = String(v || '').trim();
+  let m;
+  if ((m = s.match(/instagram\.com\/(?:[\w.]+\/)?(reels?|p|tv)\/([\w-]+)/))) {
+    const type = m[1] === 'reels' ? 'reel' : m[1];
+    return { kind: 'instagram', id: { type, code: m[2] }, tag: `${type}-${m[2]}` };
+  }
+  if (/tiktok\.com/.test(s)) {
+    const id = tiktokId(s);
+    return id ? { kind: 'tiktok', id, tag: id } : null;
+  }
+  if ((m = s.match(/vimeo\.com\/(?:video\/)?(\d+)/)) || /^\d+$/.test(s)) {
+    const id = m ? m[1] : s;
+    return { kind: 'vimeo', id, tag: id };
+  }
+  if ((m = s.match(/(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|embed\/|shorts\/))([\w-]{6,})/)) || /^[\w-]{11}$/.test(s)) {
+    const id = m ? m[1] : s;
+    return { kind: 'youtube', id, tag: id };
+  }
+  return null;
 }
 
+const PROVIDERS = { instagram: 'Instagram', tiktok: 'TikTok', vimeo: 'Vimeo', youtube: 'YouTube' };
+
 /* Cadre vidéo commun à toutes les mises en page (null si lien non reconnu).
-   Instagram : on charge le lecteur officiel et on le recadre pour ne garder
-   que la vidéo, au format reel 9:16 (sans en-tête ni bandes noires). */
+   La vidéo n'est chargée qu'au clic (script.js) : une seule vidéo à la fois,
+   page légère, et aucune donnée envoyée aux plateformes avant que la visiteuse ne lance la lecture.
+   Sans JavaScript, le cadre est un simple lien vers la vidéo. */
 function videoEmbed(b, p, pad) {
-  const ig = instagramPermalink(b.url);
-  if (ig)
-    return `${pad}<div class="video-frame vertical instagram">
-${pad}  <iframe src="${esc(ig)}embed/" title="${esc(`Vidéo — ${p.title}`)}" scrolling="no" loading="lazy" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
-${pad}</div>`;
-  const src = videoSrc(b.url);
-  if (!src) return null;
-  return `${pad}<div class="video-frame${b.vertical ? ' vertical' : ''}">
-${pad}  <iframe src="${esc(src)}" title="${esc(`Vidéo — ${p.title}`)}" loading="lazy" allow="fullscreen; picture-in-picture" allowfullscreen></iframe>
+  const info = videoInfo(b.url);
+  if (!info) return null;
+  const { kind, id, tag } = info;
+  let src, vertical = !!b.vertical, extra = '';
+  if (kind === 'instagram') {
+    src = `https://www.instagram.com/${id.type}/${id.code}/embed/`;
+    vertical = true;
+    extra = ' instagram';
+  } else if (kind === 'tiktok') {
+    src = `https://www.tiktok.com/player/v1/${id}?music_info=1&description=1&autoplay=1`;
+    vertical = true;
+  } else if (kind === 'vimeo') {
+    src = `https://player.vimeo.com/video/${id}?title=0&byline=0&portrait=0&autoplay=1`;
+  } else {
+    src = `https://www.youtube.com/embed/${id}?autoplay=1`;
+  }
+  const href = /^https?:\/\//.test(String(b.url).trim()) ? String(b.url).trim() : src.replace(/[?&]autoplay=1/, '');
+  let thumb = '';
+  let external = false;
+  if (b.cover) checkImage(b.cover, `${p.title} (aperçu vidéo)`);
+  // On interroge toujours la plateforme : elle peut refuser l'intégration (compte privé, contenu soumis à une limite d'âge…).
+  const auto = videoThumb(kind, id, tag);
+  if (refused.has(`${kind}-${tag}`)) {
+    external = true;
+    warn(`${p.title} : ${PROVIDERS[kind]} refuse d'intégrer cette vidéo (compte privé, contenu soumis à une limite d'âge ou supprimé). Elle s'affiche comme un lien vers ${PROVIDERS[kind]} → ${b.url}`);
+  }
+  thumb = b.cover ? normPath(b.cover) : auto;
+  if (!thumb && !external && kind !== 'tiktok') warn(`${p.title} : aperçu de la vidéo ${PROVIDERS[kind]} introuvable (réseau ou lien non public). Tu peux ajouter une « Image d'aperçu » dans le bloc.`);
+  return `${pad}<div class="video-frame video-facade${vertical ? ' vertical' : ''}${extra}${external ? ' video-external' : ''}" data-src="${esc(src)}" data-title="${esc(`Vidéo — ${p.title}`)}">
+${pad}  <a class="video-play" href="${esc(href)}" target="_blank" rel="noopener" aria-label="${external ? `Voir la vidéo sur ${PROVIDERS[kind]}` : `Lire la vidéo (${PROVIDERS[kind]})`}">${thumb ? `
+${pad}    <img src="${esc(thumb)}" alt="" loading="lazy">` : ''}
+${pad}    <span class="video-label">${external ? `Voir sur ${PROVIDERS[kind]} ↗` : PROVIDERS[kind]}</span>
+${pad}    <span class="video-icon" aria-hidden="true"></span>
+${pad}  </a>
 ${pad}</div>`;
 }
 

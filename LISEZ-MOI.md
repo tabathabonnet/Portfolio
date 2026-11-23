@@ -73,6 +73,9 @@ Dans les mises en page « étude de cas », **la couverture s'affiche automatiqu
 ### Animations en boucle (à la place des GIF)
 Un GIF est très lourd. Utilise plutôt une **courte vidéo MP4 muette** : même effet (elle tourne en boucle, sans son, sans bouton), mais 10 à 20 fois plus légère. Dans les blocs, choisis **Animations en boucle**, envoie un ou plusieurs fichiers MP4 (moins de 5 Mo chacun) et choisis combien en afficher par ligne (1, 2 ou 3). Les animations ne se lancent que lorsqu'elles sont à l'écran.
 
+### Vidéos (Instagram, TikTok, YouTube, Vimeo)
+Dans les blocs, choisis **Vidéo** et colle simplement le lien. Les visiteurs lancent la vidéo d'un clic, **une seule à la fois**. L'aperçu est récupéré automatiquement pour Instagram, YouTube et Vimeo ; pour TikTok, ajoute une « Image d'aperçu » (sinon fond noir). Pour TikTok, colle le lien complet qui contient `/video/`. Si Instagram refuse d'intégrer une publication (compte privé ou restreint), elle s'affiche comme un lien « Voir sur Instagram ».
+
 ### Rangement des images
 Garde un dossier par projet (`_img/2026-NomDuProjet/`). Les noms de fichiers n'ont plus besoin d'être `img-1.webp`, `img-2.webp`… Les espaces et accents sont nettoyés automatiquement.
 
