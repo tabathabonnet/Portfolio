@@ -340,6 +340,11 @@ content:
                 label: Vidéo verticale (reel, story)
                 type: boolean
                 default: false
+              - name: hide_link
+                label: Masquer le lien « Ouvrir sur… »
+                description: Par défaut, un petit lien sous la vidéo ouvre la publication d'origine dans un nouvel onglet.
+                type: boolean
+                default: false
               - name: half
                 label: Demi-largeur (2 vidéos côte à côte)
                 description: Coche-la sur deux vidéos qui se suivent pour les afficher l'une à côté de l'autre.

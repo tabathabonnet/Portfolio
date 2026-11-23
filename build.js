@@ -379,7 +379,8 @@ ${pad}    <img src="${esc(thumb)}" alt="" loading="lazy">` : ''}
 ${pad}    <span class="video-label">${external ? `Voir sur ${PROVIDERS[kind]} ↗` : PROVIDERS[kind]}</span>
 ${pad}    <span class="video-icon" aria-hidden="true"></span>
 ${pad}  </a>
-${pad}</div>`;
+${pad}</div>${external || b.hide_link ? '' : `
+${pad}<a class="video-open" href="${esc(href)}" target="_blank" rel="noopener">Ouvrir sur ${PROVIDERS[kind]} ↗</a>`}`;
 }
 
 /* ---------- éléments d'en-tête de projet ---------- */
