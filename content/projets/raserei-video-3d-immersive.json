@@ -14,8 +14,11 @@
   "tools": "Blender, Premiere Pro",
   "cover": "/_img/_img-Projet/couv-raserei.webp",
   "cover_vertical": false,
-  "intro": "Réalisée dans le cadre de mes cours à l’ERACOM, sous l’encadrement de Simon de Diesbach, cette vidéo 3D explore l’univers effervescent des boîtes de nuit. À travers un travail sur les lumières, les mouvements et l’ambiance sonore, elle cherche à retranscrire l’énergie collective et l’atmosphère électrique du monde nocturne.\nCe projet m’a permis d’explorer la création d’un univers immersif en 3D, tout en développant mes compétences en animation et en direction artistique. Ce projet a également reçu une nomination aux IMD Awards 2025.",
   "blocks": [
+    {
+      "type": "text",
+      "body": "Réalisée dans le cadre de mes cours à l’ERACOM, sous l’encadrement de Simon de Diesbach, cette vidéo 3D explore l’univers effervescent des boîtes de nuit. À travers un travail sur les lumières, les mouvements et l’ambiance sonore, elle cherche à retranscrire l’énergie collective et l’atmosphère électrique du monde nocturne.\nCe projet m’a permis d’explorer la création d’un univers immersif en 3D, tout en développant mes compétences en animation et en direction artistique. Ce projet a également reçu une nomination aux IMD Awards 2025."
+    },
     {
       "type": "video",
       "url": "https://youtu.be/Q334NnGjyAg?si=2SqP9-O3nc67cY90",
