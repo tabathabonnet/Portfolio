@@ -2,7 +2,7 @@
   "title": "QoQa & Qrew – Vidéos promotionnelles",
   "published": true,
   "layout": "split",
-  "featured": true,
+  "featured": false,
   "categories": [
     "video"
   ],
