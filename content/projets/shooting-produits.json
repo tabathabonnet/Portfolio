@@ -11,5 +11,8 @@
   "role": "Photographe",
   "client": "QoQa",
   "cover": "/_img/_img-Projet/couv-shootpoduitqoqa.webp",
-  "cover_vertical": false
+  "cover_vertical": false,
+  "gallery": [
+    "/_img/2024-QoQa_Shooting_Poduits/2024-qoqapoduits-1.webp"
+  ]
 }
