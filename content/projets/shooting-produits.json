@@ -1,0 +1,15 @@
+{
+  "title": "Shooting produits",
+  "published": true,
+  "layout": "photo",
+  "featured": true,
+  "categories": [
+    "photo"
+  ],
+  "discipline": "Photographie",
+  "year": "2022-2024",
+  "role": "Photographe",
+  "client": "QoQa",
+  "cover": "/_img/_img-Projet/couv-shootpoduitqoqa.webp",
+  "cover_vertical": false
+}
