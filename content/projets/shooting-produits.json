@@ -2,7 +2,7 @@
   "title": "Shooting produits",
   "published": true,
   "layout": "photo",
-  "featured": true,
+  "featured": false,
   "categories": [
     "photo"
   ],
